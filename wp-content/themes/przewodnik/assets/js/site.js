@@ -91,12 +91,16 @@
     var typy=[], stan={}, szuk=d.getElementById('filtr-szukaj'), fraza='';
     [].forEach.call(d.querySelectorAll('.fb[data-t]'),function(b){ var t=b.getAttribute('data-t'); if(typy.indexOf(t)<0){ typy.push(t); stan[t]=[]; } });
     try{ var q=new URLSearchParams(w.location.search); typy.forEach(function(t){ if(q.get(t)) stan[t]=q.get(t).split(',').filter(Boolean); }); if(q.get('q')&&szuk){ szuk.value=q.get('q'); } }catch(e){}
-    var wiecej=d.querySelector('[data-filtr-wiecej]');
-    if(wiecej && w.matchMedia && w.matchMedia('(max-width:760px)').matches && !typy.slice(2).some(function(t){ return stan[t].length; })) wiecej.open=false;
+    /* 12.11 wieczór: panel dodatkowych filtrów (poziom 2) - otwierany przyciskiem, zostaje otwarty po wyborze */
+    var wb=d.getElementById('filtr-wiecej-b'), dod=d.getElementById('filtr-dod'), akt=d.getElementById('filtr-akt');
+    function panel(o){ if(!wb||!dod) return; dod.hidden=!o; wb.setAttribute('aria-expanded',o?'true':'false'); wb.textContent=o?'Ukryj dodatkowe filtry':'Pokaż dodatkowe filtry'; }
+    if(wb) wb.addEventListener('click',function(){ panel(dod.hidden); });
+    if(dod && [].some.call(dod.querySelectorAll('.fb[data-t]'),function(b){ var t=b.getAttribute('data-t'); return stan[t] && stan[t].length; })) panel(true);
     /* rdzeń słowa: odmiana polska (Czerwony Klasztor -> Czerwonego Klasztoru, przyrodnicza -> przyrodnicze) */
     function rdzen(w){ var n=w.length; return n<=4?w:w.slice(0,Math.max(4,n-2)); }
     function norm(x){ x=(x||'').toLowerCase(); return x.normalize?x.normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/ł/g,'l'):x; }
-    function odm(n){ return n===1?'propozycja':(n%10>=2&&n%10<=4&&(n%100<10||n%100>=20)?'propozycje':'propozycji'); }
+    function odm(n){ return n===1?'wycieczkę':(n%10>=2&&n%10<=4&&(n%100<10||n%100>=20)?'wycieczki':'wycieczek'); }
+    function nazwa(t,v){ var b=d.querySelector('.fb[data-t="'+t+'"][data-v="'+v+'"]'); return b?(b.querySelector('span')||b).textContent.trim():v; }
     function filtruj(){
       var ile=0; fraza=szuk?norm(szuk.value.trim()):''; var slowa=fraza?fraza.split(/[^a-z0-9]+/).filter(Boolean).map(rdzen):[];
       karty.forEach(function(k){
@@ -105,9 +109,12 @@
         k.hidden=!ok; if(ok) ile++;
       });
       [].forEach.call(d.querySelectorAll('.fb[data-t]'),function(b){ var t=b.getAttribute('data-t'), v=b.getAttribute('data-v'); b.setAttribute('aria-pressed',(v==='all'?!stan[t].length:stan[t].indexOf(v)>-1)?'true':'false'); });
-      var akt=typy.some(function(t){ return stan[t].length; })||slowa.length>0;
-      wynik.textContent='Pokazuję '+ile+' '+odm(ile)+' z '+karty.length+'.';
-      if(wyczysc) wyczysc.hidden=!akt;
+      var aktywne=typy.some(function(t){ return stan[t].length; })||slowa.length>0;
+      wynik.textContent=ile?'Znaleziono '+ile+' '+odm(ile):'Nie znaleziono wycieczek';
+      if(wyczysc) wyczysc.hidden=!aktywne;
+      if(akt){ var h=''; typy.forEach(function(t){ stan[t].forEach(function(v){ var n=nazwa(t,v); h+='<button type="button" class="fa" data-t="'+t+'" data-v="'+v+'" aria-label="Usuń filtr: '+n.replace(/"/g,'')+'">'+n+'<span aria-hidden="true">&times;</span></button>'; }); });
+        if(szuk&&szuk.value.trim()) h+='<button type="button" class="fa" data-q="1" aria-label="Usuń wyszukiwanie">„'+szuk.value.trim().replace(/[<>&"]/g,'')+'”<span aria-hidden="true">&times;</span></button>';
+        akt.innerHTML=h?h+'<button type="button" class="fa-x">Wyczyść wszystkie</button>':''; akt.hidden=!h; }
       brak.hidden=ile>0;
       try{ var q2=new URLSearchParams(); typy.forEach(function(t){ if(stan[t].length) q2.set(t,stan[t].join(',')); }); if(szuk&&szuk.value.trim()) q2.set('q',szuk.value.trim()); history.replaceState(null,'',(q2.toString()?'?'+q2.toString():w.location.pathname)+w.location.hash); }catch(e){}
     }
@@ -119,6 +126,7 @@
       });
     });
     function zeruj(){ typy.forEach(function(t){ stan[t]=[]; }); if(szuk) szuk.value=''; filtruj(); }
+    if(akt) akt.addEventListener('click',function(e){ var b=e.target.closest('button'); if(!b) return; if(b.classList.contains('fa-x')) return zeruj(); if(b.getAttribute('data-q')){ szuk.value=''; return filtruj(); } var t=b.getAttribute('data-t'), x=stan[t]?stan[t].indexOf(b.getAttribute('data-v')):-1; if(x>-1) stan[t].splice(x,1); filtruj(); });
     [wyczysc,d.getElementById('filtr-zeruj')].forEach(function(x){ if(x) x.addEventListener('click',zeruj); });
     filtruj();
   }

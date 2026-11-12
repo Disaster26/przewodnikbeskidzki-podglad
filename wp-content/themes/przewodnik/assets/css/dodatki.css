@@ -658,3 +658,14 @@ html:has(.rg-nav){scroll-padding-top:calc(var(--head) + 52px)}
 .okr-pas .okr > *{flex:none}
 .okr-pas .okr [aria-current]{flex:0 1 auto;min-width:0;overflow:hidden;text-overflow:ellipsis}
 .nav .nav-dop{display:none !important}
+
+/* 12.11 wieczór: Oferta (karty 2 x 2, pomoc w planowaniu z regionami) */
+.of-karty{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
+.of-karta img{width:100%;aspect-ratio:16/9;object-fit:cover}
+.of-karta .karta-tx p{font-size:16px;color:var(--ink-2);margin:0 0 12px}
+.of-karta .lnk{margin-top:auto}
+.of-pom{max-width:860px}
+.of-pom .dod{margin-bottom:22px}
+.of-reg-h{font-weight:700;color:var(--ink) !important;margin-bottom:0}
+@media (max-width:760px){.of-karty{grid-template-columns:1fr;gap:14px}}
+.om-regiony a.om-reg{color:var(--ink) !important;text-decoration:none !important}

@@ -402,3 +402,4 @@ html:has(.rg-nav){scroll-padding-top:calc(var(--head) + 52px)}
 .karta-wstep{font-size:1.08em;color:var(--ink);font-weight:600}
 .karta-wazne li,.karta-info dd{overflow-wrap:anywhere}
 .karta-wazne a{color:var(--red-d);font-weight:700}
+.skrot-atr{margin:16px 0 0;font-size:15px;line-height:1.45}

@@ -464,3 +464,15 @@ html:has(.rg-nav){scroll-padding-top:calc(var(--head) + 52px)}
 .prog-op{font-size:15.5px;color:var(--ink-2);margin:0 0 8px}
 .prog-k .lnk{margin:auto 0 10px;padding-top:8px}
 .prog-wstep{max-width:780px;margin-bottom:34px}
+.pole-opis{display:block;font-size:13.5px;line-height:1.4;color:var(--mut);margin-top:-3px}
+.form-szybki .zakres .pole-opis{margin:-4px 0 8px}
+/* 12.11 (mail 13:23): logo klientki w nagłówku i znaki FB / Instagram / WhatsApp w oryginalnych kolorach marek */
+.logo img.logo-jj{width:auto;height:60px}
+.soc a{background:#fff}
+.soc a.m-fb svg{fill:#0866FF}
+.soc a.m-ig svg{fill:url(#pb-ig-gr)}
+.soc a.m-wa svg{fill:#25D366}
+.soc a:hover,.soc a:focus-visible{background:#fff;box-shadow:0 0 0 2px rgba(23,32,27,.15)}
+@media (max-width:760px){.logo img.logo-jj{height:50px}}
+.kon-sc.sciezki{grid-template-columns:repeat(3,minmax(0,1fr))}
+@media (max-width:1020px){.kon-sc.sciezki{grid-template-columns:minmax(0,1fr)}}

@@ -93,10 +93,12 @@
     try{ var q=new URLSearchParams(w.location.search); typy.forEach(function(t){ if(q.get(t)) stan[t]=q.get(t).split(',').filter(Boolean); }); if(q.get('q')&&szuk){ szuk.value=q.get('q'); } }catch(e){}
     var wiecej=d.querySelector('[data-filtr-wiecej]');
     if(wiecej && w.matchMedia && w.matchMedia('(max-width:760px)').matches && !typy.slice(2).some(function(t){ return stan[t].length; })) wiecej.open=false;
+    /* rdzeń słowa: odmiana polska (Czerwony Klasztor -> Czerwonego Klasztoru, przyrodnicza -> przyrodnicze) */
+    function rdzen(w){ var n=w.length; return n<=4?w:w.slice(0,Math.max(4,n-2)); }
     function norm(x){ x=(x||'').toLowerCase(); return x.normalize?x.normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/ł/g,'l'):x; }
     function odm(n){ return n===1?'propozycja':(n%10>=2&&n%10<=4&&(n%100<10||n%100>=20)?'propozycje':'propozycji'); }
     function filtruj(){
-      var ile=0; fraza=szuk?norm(szuk.value.trim()):''; var slowa=fraza?fraza.split(/\s+/):[];
+      var ile=0; fraza=szuk?norm(szuk.value.trim()):''; var slowa=fraza?fraza.split(/[^a-z0-9]+/).filter(Boolean).map(rdzen):[];
       karty.forEach(function(k){
         var ok=typy.every(function(t){ if(!stan[t].length) return true; var v=(k.getAttribute('data-'+t)||'').split(' '); return stan[t].some(function(x){ return v.indexOf(x)>-1; }); });
         if(ok && slowa.length){ var tx=norm(k.getAttribute('data-txt')||k.textContent); ok=slowa.every(function(s){ return tx.indexOf(s)>-1; }); }

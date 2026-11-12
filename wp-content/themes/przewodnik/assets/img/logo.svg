@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" role="img" aria-label="Przewodnik Beskidzki - Jagoda Jurkowska">
+  <defs>
+    <clipPath id="lgw"><circle cx="50" cy="50" r="27"/></clipPath>
+    <path id="lgt" d="M50 84a34 34 0 1 1 0-68a34 34 0 1 1 0 68"/>
+  </defs>
+  <circle cx="50" cy="50" r="46" fill="none" stroke="#E3121B" stroke-width="6"/>
+  <circle cx="50" cy="50" r="41" fill="#141414"/>
+  <text font-family="Overpass,Arial,sans-serif" font-size="8.6" font-weight="700" fill="#F2E7C4" letter-spacing=".6"><textPath href="#lgt" startOffset="7%">PRZEWODNIK BESKIDZKI</textPath></text>
+  <text x="50" y="88.5" font-family="Arial,sans-serif" font-size="9" fill="#F2E7C4" text-anchor="middle">&#10033;</text>
+  <circle cx="50" cy="50" r="27" fill="#2E66E6"/>
+  <g clip-path="url(#lgw)">
+    <path d="M18 66 L40 44 L47 49 L56 37 L66 46 L72 42 L84 56 L84 80 L18 80Z" fill="#fff"/>
+    <path d="M56 37 L60 48 L55 52 L62 55 M66 46 L64 54 L70 58 M47 49 L49 56" fill="none" stroke="#2E66E6" stroke-width="1.6" stroke-linejoin="round"/>
+    <path d="M18 70 Q50 62 84 72 L84 80 L18 80Z" fill="#fff"/>
+    <path d="M38 32 L45 45 L41 45 L47 55 L42 55 L49 66 L27 66 L34 55 L29 55 L35 45 L31 45Z" fill="#247C26"/>
+    <rect x="36.8" y="66" width="2.6" height="6" fill="#5b3b1c"/>
+  </g>
+</svg>

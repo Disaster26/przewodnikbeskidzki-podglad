@@ -1,0 +1,5 @@
+@font-face{font-family:"Overpass";font-weight:400 800;src:url(../fonts/overpass-latin-ext.woff2) format("woff2")}
+@font-face{font-family:"Overpass";font-weight:400 800;src:url(../fonts/overpass-latin.woff2) format("woff2")}
+body{font:400 17px/1.65 "Overpass",system-ui,sans-serif;color:#17201B}
+h2,h3{font-weight:800;line-height:1.15}
+a{color:#B80D15}

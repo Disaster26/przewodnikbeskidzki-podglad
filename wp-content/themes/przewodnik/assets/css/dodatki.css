@@ -403,3 +403,64 @@ html:has(.rg-nav){scroll-padding-top:calc(var(--head) + 52px)}
 .karta-wazne li,.karta-info dd{overflow-wrap:anywhere}
 .karta-wazne a{color:var(--red-d);font-weight:700}
 .skrot-atr{margin:16px 0 0;font-size:15px;line-height:1.45}
+/* 12.11 zakładka "Masz pomysł na wycieczkę?": kafelki bez nachodzenia na wstęp, Szybki kontakt, profile, Formularz Szybkiej Rezerwacji */
+.kon-sc.sciezki{top:0;margin-bottom:0}
+.soc-k a.m-fb{color:#0866FF}.soc-k a.m-ig{color:#E1306C}.soc-k a.m-wa{color:#25D366}
+.soc-k a:hover,.soc-k a:focus-visible{background:#fff;border-color:currentColor}
+.kon-tresc{padding-top:8px}
+.kon-proza{max-width:none}
+.kon-kafle{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;margin:0 0 44px}
+.kon-kafel{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:26px 28px 22px}
+.kon-proza .kon-kafel h2{margin:0 0 14px;font-size:26px}
+.kon-proza .kon-lista,.kon-proza .kon-prof{list-style:none;margin:0;padding:0}
+.kon-proza .kon-lista li,.kon-proza .kon-prof li{padding:10px 0;border-top:1px solid var(--line);margin:0}
+.kon-proza .kon-lista li:first-child,.kon-proza .kon-prof li:first-child{border-top:0;padding-top:0}
+.kon-proza .kon-lista li::before,.kon-proza .kon-prof li::before{display:none}
+.kon-lista strong{display:block;font-size:14px;color:var(--mut);font-weight:700}
+.kon-lista a{font-size:20px;font-weight:800;color:var(--red-d);text-decoration:none;display:inline-block;padding:4px 0;overflow-wrap:anywhere}
+.kon-lista a:hover,.kon-lista a:focus-visible{text-decoration:underline}
+.kon-prof li{display:flex;align-items:center;gap:12px}
+.kon-prof img{width:28px;height:28px;flex:none;margin:0;border-radius:0}
+.kon-prof .lg-zast{width:28px;height:28px;flex:none;display:inline-grid;place-items:center;border-radius:50%;background:var(--bg-2);font-weight:800;font-size:14px;color:var(--ink)}
+.kon-prof a{font-weight:700;overflow-wrap:anywhere}
+.kon-prof small{display:block;color:var(--mut);font-size:13.5px}
+.kon-rez{background:var(--bg-2);border-radius:var(--r);padding:30px 32px 32px;margin:0 0 8px}
+.kon-proza .kon-rez h2{margin-top:0}
+.kon-rez > p{max-width:760px}
+.zakres-h{font-size:15px;font-weight:700;margin:0 0 8px}.zakres-h span{font-weight:400;color:var(--mut)}
+.zakres-k{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2fr);gap:14px}
+.zakres-gr{border:1.5px solid #C5CFC8;border-radius:var(--r);background:#fff;padding:12px 14px 8px;margin:0;min-width:0}
+.zakres-gr legend{font-weight:800;font-size:14.5px;padding:0 6px}
+.zakres-gr:last-child{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:12px}
+.zakres-gr:last-child legend{grid-column:1/-1}
+.zakres-op{display:flex;align-items:flex-start;gap:10px;padding:8px 0;font-size:15.5px;line-height:1.35;cursor:pointer;min-height:44px;box-sizing:border-box}
+.zakres-op input{width:20px;height:20px;flex:none;margin:0;accent-color:var(--red)}
+.kon-info{margin-top:26px;padding:20px 22px 6px;border-left:4px solid var(--g-blue);background:#fff;border-radius:0 var(--r) var(--r) 0}
+.kon-proza .kon-info h3{margin:0 0 10px;font-size:19px}
+.kon-info p{font-size:15.5px}
+@media (max-width:760px){
+  .kon-kafle{grid-template-columns:minmax(0,1fr);gap:12px;margin-bottom:32px}
+  .kon-kafel{padding:20px 18px 16px}
+  .kon-rez{padding:22px 16px 24px;margin-left:-4px;margin-right:-4px}
+  .zakres-k{grid-template-columns:minmax(0,1fr)}
+  .zakres-gr:last-child{grid-template-columns:minmax(0,1fr)}
+}
+/* 12.11 katalog: wyszukiwarka i dodatkowe filtry */
+.filtr-szuk{margin:0 0 14px;max-width:520px}
+.filtr-szuk input{font:inherit;font-size:16px;border:1.5px solid #C5CFC8;border-radius:var(--r);padding:12px 14px 10px;background:#fff;width:100%}
+.filtr-szuk input:focus{outline:none;border-color:var(--ink);box-shadow:0 0 0 3px rgba(227,18,27,.18)}
+.filtr-wiecej{margin:0}
+.filtr-wiecej summary{cursor:pointer;font-weight:700;font-size:15px;color:var(--red-d);padding:10px 0;list-style:none;display:flex;align-items:center;gap:8px;min-height:44px}
+.filtr-wiecej summary::-webkit-details-marker{display:none}
+.filtr-wiecej summary::before{content:"+";display:inline-grid;place-items:center;width:22px;height:22px;border:1.5px solid currentColor;border-radius:50%;font-size:16px;line-height:1}
+.filtr-wiecej[open] summary::before{content:"\2212"}
+@media (min-width:761px){.filtr-wiecej summary{display:none}}
+.filtr-wiecej .filtr-r + .filtr-r{margin-top:12px}
+/* 12.11 programy pobytowe */
+.prog-k{display:flex;flex-direction:column}
+.prog-k h3 a{color:var(--ink);text-decoration:none}
+.prog-k h3 a:hover{text-decoration:underline}
+.prog-dni{align-self:flex-start;font-size:13px;font-weight:800;color:#fff;background:var(--k,var(--red));padding:5px 10px 3px;border-radius:2px;margin-bottom:10px}
+.prog-op{font-size:15.5px;color:var(--ink-2);margin:0 0 8px}
+.prog-k .lnk{margin:auto 0 10px;padding-top:8px}
+.prog-wstep{max-width:780px;margin-bottom:34px}

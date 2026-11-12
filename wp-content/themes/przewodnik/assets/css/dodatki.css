@@ -476,3 +476,99 @@ html:has(.rg-nav){scroll-padding-top:calc(var(--head) + 52px)}
 @media (max-width:760px){.logo img.logo-jj{height:50px}}
 .kon-sc.sciezki{grid-template-columns:repeat(3,minmax(0,1fr))}
 @media (max-width:1020px){.kon-sc.sciezki{grid-template-columns:minmax(0,1fr)}}
+
+/* 12.11 wieczór: Wycieczki z przewodnikiem - dołącz do grupy (atuty, kategorie, termin z miejscem i ceną) */
+.spc-wst .glowa{margin-bottom:22px}
+.spc-plusy{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px 22px;max-width:820px;margin:0 0 28px;padding:0;list-style:none}
+.spc-plusy li{position:relative;padding:4px 0 2px 30px;font-weight:700;font-size:16.5px}
+.spc-plusy li::before{content:"";position:absolute;left:0;top:6px;width:16px;height:16px;border-radius:1px;background:linear-gradient(#fff 0 33.4%,var(--g-green) 33.4% 66.6%,#fff 66.6%);box-shadow:0 0 0 1px rgba(23,32,27,.2)}
+.spc-kat{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.spc-kat-k{display:flex;gap:12px;align-items:flex-start;background:#fff;border:1px solid var(--line);border-left:5px solid var(--k);border-radius:var(--r);padding:14px 16px 12px;text-decoration:none;color:inherit}
+.spc-kat-k:hover{box-shadow:0 10px 24px rgba(23,32,27,.1)}
+.spc-kat-k .znak{width:24px;height:24px;flex:none;margin-top:2px}
+.spc-kat-k b{display:block;font-size:17.5px;line-height:1.25}
+.spc-kat-k small{display:block;font-size:14.5px;color:var(--ink-2);margin-top:3px}
+.term-mc{display:flex;flex-direction:column;gap:2px;font-size:14px;color:var(--ink-2);margin:8px 0 4px;line-height:1.4}
+.term-mc b{color:var(--ink)}
+.cena-ob{display:block;font-size:13.5px;font-weight:500;color:var(--mut);line-height:1.4;margin-top:3px}
+.spc-lnk{display:flex;flex-wrap:wrap;gap:6px 18px;margin:12px 24px 0}
+@media (max-width:760px){.spc-plusy{grid-template-columns:1fr}.spc-kat{grid-template-columns:1fr;gap:8px}.spc-lnk{margin:12px 16px 0}}
+
+/* Kontakt: kafel "Turyści indywidualni" z dwiema ścieżkami */
+.sc-k-2{cursor:default}
+.sc-k-2:hover{transform:none}
+.sc-cta-2{display:flex;flex-direction:column;gap:6px;margin-top:auto}
+.sc-cta-2 .sc-cta{text-decoration:none}
+.sc-cta-2 .sc-cta:hover{text-decoration:underline;text-underline-offset:3px}
+@media (max-width:760px){.sc-cta-2{grid-column:2}}
+
+/* Cennik: sekcje wg kolejności klientki */
+.cen-tresc{max-width:900px}
+.cen-tresc > p:first-child{margin-top:0}
+.cen-sek .glowa{margin-bottom:18px}
+.cen-lead{font-size:20px !important;color:var(--ink) !important;font-weight:600;line-height:1.5 !important}
+.cen-kat{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin:24px 0 4px}
+.proza .cen-kat-k{display:flex;flex-direction:column;gap:8px;background:#fff;border:1px solid var(--line);border-top:5px solid var(--k);border-radius:var(--r);padding:18px 18px 16px;text-decoration:none;color:inherit}
+.cen-kat-k:hover{box-shadow:0 12px 28px rgba(23,32,27,.12)}
+.cen-kat-k b{font-size:19px;line-height:1.25;color:var(--ink)}
+.cen-kat-k span{font-size:15.5px;color:var(--ink-2);line-height:1.5}
+.cen-kat-k em{font-style:normal;font-weight:800;font-size:15px;color:var(--red-d);margin-top:auto}
+.cen-kat-k em::after{content:" →"}
+.cen-zas{background:#fff;border-left:5px solid var(--g-blue);border-radius:var(--r);padding:12px 16px}
+.sek-jasna .cen-zas{background:#fff}.sek:not(.sek-jasna) .cen-zas{background:var(--bg-2)}
+.cen-uwaga{border-left:5px solid var(--g-green);padding:10px 16px;background:#fff;border-radius:var(--r)}
+.sek:not(.sek-jasna) .cen-uwaga{background:var(--bg-2)}
+.cen-tresc .tab-cen{margin-top:10px}
+.tab-cen th small{display:block;font-size:13px;font-weight:500;color:var(--mut);line-height:1.35;margin-top:3px}
+.cen-pod{font-size:15.5px !important;color:var(--ink-2)}
+.proza .cen-atuty{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;padding:0;margin:6px 0 0;list-style:none}
+.proza .cen-atuty li{background:#fff;border:1px solid var(--line);border-top:5px solid var(--k);border-radius:var(--r);padding:16px 16px 14px 16px;font-size:15.5px;line-height:1.5}
+.sek-jasna .cen-atuty li{background:#fff}
+.proza .cen-atuty li::before{position:static;display:block;width:22px;height:22px;margin-bottom:10px;background:linear-gradient(#fff 0 33.4%,var(--k) 33.4% 66.6%,#fff 66.6%)}
+.cen-atuty b{display:block;font-size:17.5px;color:var(--ink);margin-bottom:2px}
+@media (max-width:900px){.cen-kat{grid-template-columns:1fr;gap:10px}}
+@media (max-width:760px){.cen-lead{font-size:17.5px !important}.proza .cen-atuty{grid-template-columns:1fr}}
+
+/* 12.11 wieczór: O mnie (9 sekcji wg klientki) */
+.ph-tagi .om-upr{white-space:normal}
+.om-sek .glowa{margin-bottom:20px}
+.om-tresc{max-width:860px}
+.om-tresc > p:first-child{margin-top:0}
+.om-puenta{font-weight:700;color:var(--ink) !important}
+.om-podpis{border-left:4px solid var(--red);padding-left:14px;color:var(--ink) !important}
+.om-btn{display:flex;flex-wrap:wrap;gap:10px;margin:22px 0 0}
+.om-kwal{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:22px}
+.om-kw{background:#fff;border:1px solid var(--line);border-top:5px solid var(--k);border-radius:var(--r);padding:20px 20px 10px}
+.sek:not(.sek-jasna) .om-kw{background:var(--bg-2)}
+.om-kw .znak{width:24px;height:24px;margin-bottom:10px}
+.proza .om-kw h3{font-size:19px;margin:0 0 8px}
+.proza .om-kw li{font-size:15.5px;line-height:1.5;padding:7px 0 6px 26px;border-top:1px solid var(--line)}
+.proza .om-kw li::before{top:12px;width:13px;height:13px;background:linear-gradient(#fff 0 33.4%,var(--k) 33.4% 66.6%,#fff 66.6%)}
+.om-grupy{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;margin-top:22px}
+.om-gr{background:#fff;border:1px solid var(--line);border-radius:var(--r);overflow:hidden;display:flex;flex-direction:column}
+.om-gr img{width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:0}
+.om-gr-tx{padding:18px 20px 20px;display:flex;flex-direction:column;gap:6px;flex:1}
+.proza .om-gr h3{font-size:21px;margin:0}
+.proza .om-gr p{font-size:16px;margin:0 0 10px;color:var(--ink-2);line-height:1.55}
+.om-gr .btn-2{margin-top:auto;align-self:flex-start}
+.om-regiony{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}
+.proza a.om-reg{display:inline-flex;align-items:center;gap:10px;background:#fff;border:1px solid var(--line);border-radius:40px;padding:9px 18px 8px 10px;font-weight:800;font-size:16.5px;color:var(--ink);text-decoration:none}
+.om-reg:hover{border-color:var(--ink)}
+.om-reg .znak{width:22px;height:22px}
+.om-op{margin-top:18px}
+.om-wiecej{margin-top:16px}
+.om-wiecej > summary{list-style:none;display:inline-flex;cursor:pointer}
+.om-wiecej > summary::-webkit-details-marker{display:none}
+.om-wiecej[open] > summary{margin-bottom:6px}
+.om-gal{margin-top:18px}
+@media (max-width:900px){.om-kwal{grid-template-columns:1fr}}
+@media (max-width:760px){.om-grupy{grid-template-columns:1fr}}
+.cen-kat > br,.cen-kat > p:empty,.om-kwal > br,.om-grupy > br,.om-regiony > br{display:none}
+.om-tresc{max-width:980px}
+.opinie-l.om-op{grid-template-columns:repeat(2,minmax(0,1fr))}
+.proza .op{margin:0}
+.proza .op blockquote{margin:0;padding:0;border:0;font-size:16.5px;line-height:1.65;color:var(--ink-2)}
+.proza .op blockquote p{font-size:16.5px}
+.proza .om-gr img,.proza .om-gal img{margin:0}
+@media (max-width:760px){.opinie-l.om-op{display:flex}}
+@media (min-width:761px){.om-gal{grid-template-columns:repeat(3,minmax(0,1fr))}}

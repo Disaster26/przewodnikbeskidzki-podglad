@@ -398,3 +398,7 @@ html:has(.rg-nav){scroll-padding-top:calc(var(--head) + 52px)}
   .gal-art::-webkit-scrollbar{display:none}
   .gal-art figure{flex:0 0 78%;scroll-snap-align:start}
 }
+/* karta: wstęp z krótkiego opisu, długie adresy w informacjach */
+.karta-wstep{font-size:1.08em;color:var(--ink);font-weight:600}
+.karta-wazne li,.karta-info dd{overflow-wrap:anywhere}
+.karta-wazne a{color:var(--red-d);font-weight:700}

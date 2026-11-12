@@ -572,3 +572,49 @@ html:has(.rg-nav){scroll-padding-top:calc(var(--head) + 52px)}
 .proza .om-gr img,.proza .om-gal img{margin:0}
 @media (max-width:760px){.opinie-l.om-op{display:flex}}
 @media (min-width:761px){.om-gal{grid-template-columns:repeat(3,minmax(0,1fr))}}
+
+/* 12.11 wieczór: Galeria (hero panoramiczne, kafle regionów, mozaika albumów, zaproszenie) */
+.gal-hero{position:relative;min-height:440px;display:flex;align-items:flex-end;overflow:hidden;background:#1c2620}
+.gal-hero > img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.gal-hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,16,12,.15) 30%,rgba(10,16,12,.72))}
+.gal-hero-tx{position:relative;z-index:1;width:100%;padding:90px 0 44px;color:#fff}
+.gal-hero-tx .okr,.gal-hero-tx .okr a,.gal-hero-tx .okr span{color:#fff}
+.gal-hero-tx h1{color:#fff;font-size:clamp(40px,5vw,68px);margin:10px 0 10px}
+.gal-hero-tx p{font-size:clamp(17px,1.6vw,21px);max-width:640px;margin:0;color:#fff}
+.gal-reg{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
+.gal-reg-k:first-child{grid-column:span 2;grid-row:span 2}
+.gal-reg-k{position:relative;display:block;border-radius:var(--r);overflow:hidden;min-height:190px;color:#fff;text-decoration:none;background:#1c2620}
+.gal-reg-k img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .4s ease}
+.gal-reg-k:hover img{transform:scale(1.04)}
+.gal-reg-k::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 35%,rgba(10,16,12,.78))}
+.gal-reg-tx{position:absolute;left:0;right:0;bottom:0;z-index:1;padding:14px 16px;display:flex;flex-direction:column;gap:2px}
+.gal-reg-tx b{font-size:21px;line-height:1.15}
+.gal-reg-k:first-child .gal-reg-tx b{font-size:30px}
+.gal-reg-tx small{font-size:14px;opacity:.92}
+.gal-reg-tx em{font-style:normal;font-weight:800;font-size:13.5px;color:#FFE34D;margin-top:2px}
+.alb-mas{columns:4 220px;column-gap:10px}
+.alb-mas figure{break-inside:avoid;margin:0 0 10px}
+.alb-mas img{width:100%;height:auto;border-radius:4px;display:block;transition:opacity .2s}
+.alb-mas a:hover img{opacity:.88}
+.gal-alb{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-bottom:12px}
+.gal-alb-k{display:flex;flex-direction:column;background:#fff;border:1px solid var(--line);border-radius:var(--r);overflow:hidden;color:inherit;text-decoration:none;transition:box-shadow .2s}
+.gal-alb-k:hover{box-shadow:0 12px 28px rgba(23,32,27,.12)}
+.gal-alb-k img{width:100%;aspect-ratio:4/3;object-fit:cover;height:auto}
+.gal-alb-tx{padding:14px 16px 16px;display:flex;flex-direction:column;gap:4px}
+.gal-alb-tx b{font-size:19px}
+.gal-alb-tx small{font-size:14.5px;color:var(--ink-2)}
+.gal-alb-tx em{font-style:normal;font-weight:800;font-size:14.5px;color:var(--red-d);margin-top:4px}
+.gal-filtr{display:flex;flex-wrap:wrap;align-items:center;gap:12px;margin:0 0 16px;font-weight:700}
+.gal-filtr[hidden],.gal-alb-k[hidden],.alb-pelny[hidden]{display:none}
+.alb-pelny{padding-top:34px;scroll-margin-top:calc(var(--head) + 16px)}
+.alb-g{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:8px 18px;border-bottom:2px solid var(--ink);padding-bottom:8px;margin-bottom:14px}
+.alb-g h3{font-size:24px;margin:0}
+.gal-kon{position:relative;min-height:380px;display:flex;align-items:center;overflow:hidden;background:#1c2620}
+.gal-kon > img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.gal-kon::after{content:"";position:absolute;inset:0;background:rgba(10,16,12,.55)}
+.gal-kon-tx{position:relative;z-index:1;width:100%;color:#fff;padding:56px 0}
+.gal-kon-tx h2{color:#fff;font-size:clamp(30px,3.4vw,46px);margin:0 0 12px}
+.gal-kon-tx p{max-width:640px;font-size:18px;color:#fff;margin:0 0 22px}
+@media (max-width:900px){.gal-reg{grid-template-columns:repeat(2,minmax(0,1fr))}.gal-alb{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:760px){.gal-hero{min-height:360px}.gal-hero-tx{padding:70px 0 28px}.gal-reg{gap:8px}.gal-reg-k{min-height:150px}.gal-reg-k:first-child{grid-column:span 2;grid-row:auto;min-height:200px}.gal-reg-tx b{font-size:18px}.gal-reg-tx small{display:none}.gal-alb{grid-template-columns:1fr}.alb-mas{columns:2;column-gap:8px}.alb-mas figure{margin-bottom:8px}}
+@media (min-width:901px){.gal-reg-k:nth-child(6),.gal-reg-k:nth-child(7){grid-column:span 2}}

@@ -160,9 +160,11 @@
   var o=d.createElement('div'); o.className='pow'; o.hidden=true; o.setAttribute('role','dialog'); o.setAttribute('aria-label','Powiększone zdjęcie');
   o.innerHTML='<button type="button" class="pow-x" aria-label="Zamknij">&times;</button><button type="button" class="pow-p" aria-label="Poprzednie">&lsaquo;</button><img alt=""><button type="button" class="pow-n" aria-label="Następne">&rsaquo;</button>';
   d.body.appendChild(o); var im=o.querySelector('img'), i=0;
+  /* 12.11: przewijanie w obrębie albumu (galeria), poza albumem po wszystkich zdjęciach strony */
+  var wsz=lin;
   function pokaz(n){ i=(n+lin.length)%lin.length; im.src=lin[i].href; var m=lin[i].querySelector('img'); im.alt=m?m.alt:''; o.hidden=false; d.body.classList.add('pow-otw'); }
   function zamknij(){ o.hidden=true; d.body.classList.remove('pow-otw'); im.src=''; }
-  lin.forEach(function(a,n){ a.addEventListener('click',function(e){ e.preventDefault(); pokaz(n); }); });
+  wsz.forEach(function(a){ a.addEventListener('click',function(e){ e.preventDefault(); var al=a.closest('[data-album]'); lin=al?[].slice.call(al.querySelectorAll('a[data-pow]')):wsz; pokaz(lin.indexOf(a)); }); });
   o.addEventListener('click',function(e){ if(e.target===o||e.target.classList.contains('pow-x')) zamknij(); else if(e.target.classList.contains('pow-p')) pokaz(i-1); else if(e.target.classList.contains('pow-n')) pokaz(i+1); });
   d.addEventListener('keydown',function(e){ if(o.hidden) return; if(e.key==='Escape') zamknij(); if(e.key==='ArrowRight') pokaz(i+1); if(e.key==='ArrowLeft') pokaz(i-1); });
 })();
@@ -208,4 +210,14 @@
     w.addEventListener('scroll',function(){ w.requestAnimationFrame(akt); },{passive:true});
     akt();
   }
+})();
+
+/* ===== galeria: kafle regionów filtrują albumy (12.11) ===== */
+(function(){
+  var d=document, kafle=[].slice.call(d.querySelectorAll('.gal-reg-k[data-region]')); if(!kafle.length) return;
+  var pas=d.querySelector('.gal-filtr'), tx=d.getElementById('gal-filtr-tx'), x=d.getElementById('gal-filtr-x');
+  var el=[].slice.call(d.querySelectorAll('.gal-alb-k[data-region], .alb-pelny[data-region]'));
+  function filtr(r,nazwa){ el.forEach(function(e){ e.hidden = r && (' '+e.getAttribute('data-region')+' ').indexOf(' '+r+' ')<0; }); if(pas){ pas.hidden=!r; if(tx) tx.textContent = r ? 'Albumy: '+nazwa : ''; } }
+  kafle.forEach(function(k){ k.addEventListener('click',function(){ filtr(k.getAttribute('data-region'), k.querySelector('b').textContent); }); });
+  if(x) x.addEventListener('click',function(){ filtr('',''); });
 })();

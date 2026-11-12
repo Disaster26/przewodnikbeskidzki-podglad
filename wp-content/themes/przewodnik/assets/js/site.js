@@ -1,6 +1,6 @@
 (function(){
   var d=document, w=window;
-    var mq=w.matchMedia('(max-width:1240px)');
+    var mq=w.matchMedia('all'); /* 12.11 wieczór: menu rozwijane ikoną na każdej szerokości ekranu */
 
   /* ===== menu: grupy rozwijane + menu mobilne ===== */
   var bur=d.getElementById('burger'), nav=d.getElementById('nav'), top=d.querySelector('.top');

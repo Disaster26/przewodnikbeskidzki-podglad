@@ -841,18 +841,106 @@ html:has(.rg-nav){scroll-padding-top:calc(var(--head) + 52px)}
 .tab-a::after{content:"";position:absolute;inset:0;z-index:1}
 .tab-a:focus-visible{outline:none}
 .tab:focus-within{outline:3px solid var(--ink);outline-offset:-3px}
-.tab .tab-opis{grid-column:2;display:grid;grid-template-rows:0fr;transition:grid-template-rows .25s ease}
-.tab .tab-opis > span{overflow:hidden;font-size:14.5px;line-height:1.4;color:#2e3530}
-.tab .tab-opis em{font-style:normal;font-weight:800;color:var(--red-d);white-space:nowrap}
-.tab .tab-opis em::after{content:" →"}
-@media (hover:hover){
-  .tab:hover,.tab:focus-within{filter:brightness(1.04)}
-  .tab:hover .tab-opis,.tab:focus-within .tab-opis{grid-template-rows:1fr}
-  .tab:hover .tab-opis > span,.tab:focus-within .tab-opis > span{padding-top:6px}
-}
-@media (hover:none),(max-width:760px){
-  .tab .tab-opis{display:block}
-  .tab .tab-opis > span{display:block;overflow:visible}
-  .tab .tab-opis > span{padding-top:6px;font-size:14px}
-}
-@media (prefers-reduced-motion:reduce){.tab .tab-opis{transition:none}}
+/* 13.11 (mail 15:43): bez krótkich opisów; widoczne "Poznaj region" prowadzi do strony regionu w Informatorze, Szczawnica na główce = link */
+.tab .znak{grid-row:span 3}
+.tab .tab-cta{grid-column:2;justify-self:start;font-weight:800;font-size:14.5px;color:var(--red-d);margin-top:4px;text-decoration:none;line-height:1.3}
+.tab .tab-cta i{font-style:normal}
+
+@media (hover:hover){.tab:hover,.tab:focus-within{filter:brightness(1.04)}.tab:hover .tab-cta{text-decoration:underline;text-underline-offset:3px}}
+.slup-a{display:block;color:inherit;text-decoration:none;text-align:center}
+.slup-a:hover{text-decoration:underline;text-underline-offset:3px}
+.slup-a:focus-visible{outline:3px solid #fff;outline-offset:4px}
+
+/* ===== 13.11 (mail 15:43): Informator turystyczny - podmenu w pasku, akordeon w menu i w stopce ===== */
+.infm{list-style:none;margin:0;padding:0}
+.infm-l{list-style:none;margin:0;padding:0}
+.infm-l[hidden]{display:none !important}
+.infm-b svg{width:13px;height:13px;flex:none;fill:none;stroke:currentColor;stroke-width:3;stroke-linecap:round;stroke-linejoin:round;transition:transform .2s;opacity:.75}
+.infm-kat.otw > .infm-b svg{transform:rotate(180deg)}
+.infm-ile{font-size:12.5px;font-weight:700;color:var(--mut);background:var(--bg-2);border-radius:20px;padding:2px 8px 1px;line-height:1.4}
+.infm-b:focus-visible,.tinf-b:focus-visible,.nav-zamk:focus-visible,.infm a:focus-visible{outline:3px solid var(--ink);outline-offset:2px}
+.infm-top a,.infm-nav a{display:flex;align-items:center;gap:10px;min-height:44px;padding:9px 10px 7px;border-radius:4px;text-decoration:none;color:var(--ink);font-weight:600;font-size:15.5px;line-height:1.25}
+.infm-top a:hover,.infm-nav a:hover{background:var(--bg-2)}
+.infm-top a .znak,.infm-nav a .znak{width:18px;height:18px;flex:none;grid-row:auto}
+.infm a[aria-current]{color:var(--red-d);font-weight:800}
+.infm-wsz a{color:var(--red) !important;font-weight:700}
+.infm-wsz a::after{content:" \2192";white-space:pre}
+
+/* pozycja w pasku (komputer): rozwija się po najechaniu albo kliknięciu */
+.tinf{position:relative;display:none;height:100%;align-items:center}
+.tinf-b{display:flex;align-items:center;gap:8px;height:46px;padding:0 14px;border:0;background:none;font:700 16px/1 var(--f);color:var(--ink);cursor:pointer;position:relative;border-radius:4px;white-space:nowrap}
+.tinf-b svg{width:12px;height:12px;fill:none;stroke:currentColor;stroke-width:3;stroke-linecap:round;stroke-linejoin:round;transition:transform .2s;opacity:.75;margin-top:-2px}
+.tinf-b::after{content:"";position:absolute;left:14px;right:14px;bottom:4px;height:3px;background:var(--red);transform:scaleX(0);transform-origin:left;transition:transform .2s}
+.tinf:hover .tinf-b::after,.tinf.otw .tinf-b::after,.tinf.akt .tinf-b::after{transform:scaleX(1)}
+.tinf.otw .tinf-b svg{transform:rotate(180deg)}
+.tinf-p{position:absolute;top:100%;right:-60px;z-index:61}
+.tinf-p[hidden]{display:none}
+.tinf-in{position:relative;width:640px;min-height:250px;background:#fff;border:1px solid var(--line);border-top:4px solid var(--red);border-radius:0 0 var(--r) var(--r);box-shadow:0 20px 44px rgba(23,32,27,.16);padding:14px}
+.infm-top{width:214px}
+.infm-top .infm-b{display:flex;align-items:center;gap:8px;width:100%;min-height:48px;padding:11px 12px 9px;border:0;background:none;font:700 16px/1.2 var(--f);color:var(--ink);text-align:left;cursor:pointer;border-radius:4px}
+.infm-top .infm-b > span{flex:1}
+.infm-top .infm-b svg,.infm-top .infm-kat.otw > .infm-b svg{transform:rotate(-90deg)}
+.infm-top .infm-kat.otw > .infm-b{background:var(--bg-2);color:var(--red-d)}
+.infm-top .infm-l{position:absolute;left:244px;right:14px;top:14px;bottom:14px;overflow-y:auto;display:grid;grid-template-columns:1fr 1fr;gap:2px 8px;align-content:start;border-left:1px solid var(--line);padding-left:16px}
+.infm-top .infm-wsz{grid-column:1/-1;border-top:1px solid var(--line);margin-top:4px;padding-top:4px}
+.tinf-all{display:block;width:214px;margin-top:10px;padding:12px 12px 8px;border-top:1px solid var(--line);font-weight:700;color:var(--red);text-decoration:none}
+.tinf-all::after{content:" \2192"}
+.tinf-all:hover{text-decoration:underline;text-underline-offset:3px}
+@media (min-width:1000px){.tinf{display:flex}}
+@media (min-width:1000px) and (max-width:1240px){.tinf-p{right:-110px}}
+
+/* menu rozwijane ikoną (telefon i komputer): akordeon wielopoziomowy */
+.infm-nav .infm-b{display:flex;align-items:center;gap:10px;width:100%;min-height:50px;padding:12px 8px 10px;border:0;border-bottom:1px solid var(--line);background:none;font:700 16.5px/1.2 var(--f);color:var(--ink);text-align:left;cursor:pointer}
+.infm-nav .infm-b > span{flex:1}
+.infm-nav .infm-kat:last-child > .infm-b{border-bottom:0}
+.infm-nav .infm-kat.otw > .infm-b{color:var(--red-d)}
+.infm-nav .infm-l{padding:4px 0 10px 10px;margin:0 0 6px 6px;border-left:3px solid var(--line)}
+.infm-nav a{font-size:16px}
+.nav-zamk{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;margin:16px 0 0;min-height:48px;padding:12px 14px 10px;border:1.5px solid var(--line);border-radius:var(--r);background:#fff;font:700 16px/1 var(--f);color:var(--ink);cursor:pointer;flex:none}
+.nav-zamk span{font-size:24px;line-height:.6;margin-top:-2px}
+.nav-zamk:hover{border-color:var(--ink)}
+.nav-zamk + .nav-tel{margin-top:10px}
+
+/* stopka: ta sama struktura, rozwijana kliknięciem */
+.infm-stopka .infm-b{display:flex;align-items:center;gap:8px;width:100%;min-height:40px;padding:6px 0;border:0;background:none;font:inherit;color:var(--ink-2);text-align:left;cursor:pointer}
+.infm-stopka .infm-b > span{flex:1}
+.infm-stopka .infm-b:hover,.infm-stopka .infm-kat.otw > .infm-b{color:var(--red-d)}
+.infm-stopka .infm-l{display:flex;flex-direction:column;gap:2px;margin:0 0 8px;padding:0 0 0 12px;border-left:2px solid var(--line)}
+.infm-stopka a{display:block;padding:4px 0}
+.infm-stopka .infm-ile{display:none}
+@media (max-width:760px){.infm-stopka .infm-b{min-height:46px}.infm-stopka a{padding:10px 0;word-break:normal}}
+
+/* ===== 13.11 (mail 15:43): formularz zapytania - krótkie etykiety, objaśnienia pod ikonką "i" ===== */
+.pole{position:relative}
+.pole-g{display:flex;align-items:center;gap:6px;min-height:28px}
+.pole-g label{margin:0}
+.tip{display:inline-flex}
+.tip-b{display:grid;place-items:center;width:30px;height:30px;margin:-5px 0;padding:0;border:0;background:none;cursor:pointer;border-radius:50%;color:var(--mut)}
+.tip-b i{display:grid;place-items:center;width:19px;height:19px;border-radius:50%;border:1.5px solid currentColor;font:700 12.5px/1 var(--f);font-style:normal}
+.tip-b:hover,.tip-b[aria-expanded="true"]{color:var(--red-d)}
+.tip-b:focus-visible{outline:3px solid var(--ink);outline-offset:1px}
+.tip-t{position:absolute;left:0;right:0;top:36px;z-index:20;max-width:420px;background:var(--ink);color:#fff;font-size:14.5px;line-height:1.45;padding:12px 42px 12px 14px;border-radius:var(--r);box-shadow:0 12px 28px rgba(23,32,27,.22)}
+.tip-t[hidden]{display:none}
+.tip-t::before{content:"";position:absolute;top:-6px;left:var(--x,20px);width:12px;height:12px;background:var(--ink);transform:rotate(45deg)}
+.tip-x{position:absolute;top:4px;right:4px;width:34px;height:34px;border:0;background:none;color:#fff;font-size:24px;line-height:1;cursor:pointer;border-radius:50%}
+.tip-x:focus-visible{outline:2px solid #fff}
+.form-wym-g{grid-column:1/-1;margin:0;font-size:14.5px;color:var(--ink-2);background:var(--bg-2);border-radius:var(--r);padding:10px 14px 8px}
+.form-wym-g .wym{margin:0 2px 0 0}
+.form-grupa .form-cz{gap:14px 18px;padding:18px 20px 20px;margin-top:6px;border-top:4px solid var(--g-green)}
+.form-grupa .form-cz:nth-of-type(2){border-top-color:var(--g-blue)}
+.form-grupa .form-cz:nth-of-type(3){border-top-color:var(--red)}
+.form-grupa .form-cz legend{font-size:17px;padding:0 8px;margin-left:-4px}
+.form .pole input,.form .pole select{min-height:50px}
+.form .pole select{-webkit-appearance:none;appearance:none;padding-right:42px;background:#fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M5 9l7 7 7-7' fill='none' stroke='%2317201B' stroke-width='2.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") no-repeat right 14px center/16px 16px;cursor:pointer}
+.form .pole input::placeholder,.form .pole textarea::placeholder{color:#8A948E}
+@media (max-width:760px){.form-grupa .form-cz{padding:14px 12px 16px}.tip-t{max-width:none;font-size:15px}}
+
+/* ===== 13.11 (mail 15:43): zapis z przypisanym spacerem i terminem ===== */
+.z-wybr{display:flex;flex-direction:column;gap:3px;background:#EEF6F0;border:1px solid #BFDCC7;border-left:5px solid var(--g-green);border-radius:var(--r);padding:14px 16px 12px}
+.z-wybr[hidden]{display:none}
+.z-wybr-h{margin:0;font-size:13.5px;font-weight:700;color:var(--mut)}
+.z-wybr b{font-size:19px;line-height:1.25}
+.z-wybr span{font-size:15.5px;color:var(--ink-2)}
+.z-wybr span:empty{display:none}
+.z-wybr .z-zmien{align-self:flex-start;margin-top:6px;font-size:15px}
+.pole[hidden]{display:none}

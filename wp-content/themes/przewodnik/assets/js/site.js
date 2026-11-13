@@ -35,7 +35,10 @@
     nav.addEventListener('click',function(e){ var a=e.target.closest('a'); if(a && a.getAttribute('href').charAt(0)==='#') zamknij(); });
     w.addEventListener('resize',function(){ if(!mq.matches && nav.classList.contains('otw')) zamknij(); else if(nav.classList.contains('otw')) wysokosc(); });
   }
-  d.addEventListener('keydown',function(e){ if(e.key==='Escape'){ zamknij(); zwin(null); } });
+  d.addEventListener('keydown',function(e){ if(e.key==='Escape'){ var o=nav&&nav.classList.contains('otw'); zamknij(); zwin(null); if(o&&bur) bur.focus(); } });
+  /* 13.11: menu łatwe do zamknięcia - przycisk "Zamknij menu" i dotknięcie poza menu */
+  [].forEach.call(d.querySelectorAll('[data-nav-zamknij]'),function(b){ b.addEventListener('click',function(){ zamknij(); if(bur) bur.focus(); }); });
+  d.addEventListener('click',function(e){ if(nav && nav.classList.contains('otw') && !nav.contains(e.target) && !(bur&&bur.contains(e.target))) zamknij(); });
 
   /* ===== dolny pasek na telefonie ===== */
   var mob=d.getElementById('mob'), cel=d.querySelector('.hero .btn, [data-cta]'), koniec=d.getElementById('zapis')||d.getElementById('zapytanie')||d.getElementById('kontakt');
@@ -149,16 +152,37 @@
   }
 })();
 
-/* ===== zapis na spacer: wybór terminu z przycisków, liczba wolnych miejsc ===== */
+/* ===== zapis na spacer: formularz przypisany do konkretnego spaceru i terminu (13.11, mail 15:43) =====
+   "Zapisz się" przy terminie (kalendarz, karty) ustawia ukryte pola termin + spacer i pokazuje podsumowanie wybranego terminu.
+   Działa też po przejściu ze strony głównej: adres /spacery/?t=ID#zapis. */
 (function(){
   var d=document, f=d.getElementById('zapis-form'); if(!f) return;
-  var sel=d.getElementById('z-termin'), ile=d.getElementById('z-ile'), wo=d.getElementById('z-wolne'), mx=+ile.max||10;
+  var sel=d.getElementById('z-termin'), ile=d.getElementById('z-ile'), wo=d.getElementById('z-wolne'), mx=+(ile.getAttribute('data-max')||ile.max)||10;
+  var ht=d.getElementById('z-t'), hs=d.getElementById('z-s'), box=d.getElementById('z-wybr'), selP=d.getElementById('z-termin-p'), zm=d.getElementById('z-zmien');
   function miejsc(n){ if(n===1) return 'wolne miejsce'; var a=n%10,b=n%100; return (a>=2&&a<=4&&!(b>=12&&b<=14))?'wolne miejsca':'wolnych miejsc'; }
-  function upd(){ var o=sel.options[sel.selectedIndex], w=o&&o.value?+o.getAttribute('data-wolne'):0; if(o&&o.value){ ile.max=Math.max(1,Math.min(w,mx)); wo.textContent='Na ten termin: '+w+' '+miejsc(w)+'.'; if(+ile.value>+ile.max) ile.value=ile.max; } else { ile.max=mx; wo.textContent=''; } }
-  sel.addEventListener('change',upd);
-  d.addEventListener('click',function(e){ var a=e.target.closest('[data-zapisz]'); if(!a) return; var o=sel.querySelector('option[value="'+a.getAttribute('data-zapisz')+'"]'); if(!o||o.disabled) return; e.preventDefault(); sel.value=o.value; upd(); d.getElementById('zapis').scrollIntoView({behavior:'smooth'}); setTimeout(function(){ try{ d.getElementById('z-kto').focus({preventScroll:true}); }catch(x){} },500); });
-  f.addEventListener('submit',function(){ var b=f.querySelector('button[type=submit]'); if(b){ setTimeout(function(){ b.disabled=true; b.classList.add('wysyla'); },0); } });
-  upd();
+  function txt(id,t){ var e=d.getElementById(id); if(e){ e.textContent=t; e.hidden=!t; } }
+  function upd(){
+    var o=sel.options[sel.selectedIndex], ok=o&&o.value&&!o.disabled, w=ok?+o.getAttribute('data-wolne'):0;
+    ht.value=ok?o.value:''; hs.value=ok?o.getAttribute('data-spacer'):'';
+    if(ok){ ile.max=Math.max(1,Math.min(w,mx)); wo.textContent='Na ten termin: '+w+' '+miejsc(w)+'.'; if(+ile.value>+ile.max) ile.value=ile.max; }
+    else { ile.max=mx; wo.textContent=''; }
+    if(ok){
+      txt('z-wybr-t',o.getAttribute('data-tytul')); txt('z-wybr-k',o.getAttribute('data-kiedy'));
+      txt('z-wybr-z',o.getAttribute('data-zb')?'Zbiórka: '+o.getAttribute('data-zb'):''); txt('z-wybr-c',o.getAttribute('data-cena')?'Cena: '+o.getAttribute('data-cena')+' od osoby':'');
+    }
+  }
+  function tryb(wybrany){ box.hidden=!wybrany; selP.hidden=wybrany; sel.required=!wybrany; }
+  function ustaw(id){ var o=sel.querySelector('option[value="'+id+'"]'); if(!o||o.disabled) return false; sel.value=o.value; upd(); tryb(true); return true; }
+  sel.addEventListener('change',function(){ upd(); if(sel.value) tryb(true); });
+  if(zm) zm.addEventListener('click',function(e){ e.preventDefault(); tryb(false); try{ sel.focus(); }catch(x){} });
+  d.addEventListener('click',function(e){ var a=e.target.closest('[data-zapisz]'); if(!a) return; if(!ustaw(a.getAttribute('data-zapisz'))) return; e.preventDefault();
+    try{ history.replaceState(null,'','?t='+a.getAttribute('data-zapisz')+'#zapis'); }catch(x){}
+    d.getElementById('zapis').scrollIntoView({behavior:'smooth'}); setTimeout(function(){ try{ d.getElementById('z-kto').focus({preventScroll:true}); }catch(x){} },500); });
+  f.addEventListener('submit',function(){ upd(); var b=f.querySelector('button[type=submit]'); if(b){ setTimeout(function(){ b.disabled=true; b.classList.add('wysyla'); },0); } });
+  var q=null; try{ q=new URLSearchParams(location.search).get('t'); }catch(x){}
+  if(q && ustaw(q)){ /* termin z adresu (np. ze strony głównej) */ }
+  else if(ht.value){ upd(); tryb(true); }
+  else { upd(); tryb(false); }
 })();
 /* ===== formularze: blokada podwójnego kliknięcia ===== */
 (function(){
@@ -323,4 +347,66 @@
     bn.addEventListener('click',function(){ if(akt<max){ akt++; rysuj(); } });
     rysuj();
   });
+})();
+
+/* ===== 13.11 (mail 15:43): Informator turystyczny - podmenu w pasku (komputer), akordeon w menu (telefon) i w stopce.
+   Wszystkie trzy menu powstają z jednej struktury (inc/nawigacja.php), skrypt tylko rozwija i zwija. ===== */
+(function(){
+  var d=document, w=window;
+  function otworz(b,o){ var l=d.getElementById(b.getAttribute('aria-controls')); b.setAttribute('aria-expanded',o?'true':'false'); if(l) l.hidden=!o; b.parentNode.classList.toggle('otw',o); }
+  [].forEach.call(d.querySelectorAll('[data-infm]'),function(m){
+    var tryb=m.getAttribute('data-infm'), bb=[].slice.call(m.querySelectorAll('.infm-b'));
+    function tylko(b){ bb.forEach(function(x){ otworz(x,x===b); }); }
+    bb.forEach(function(b){
+      b.addEventListener('click',function(e){
+        e.stopPropagation();
+        var o=b.getAttribute('aria-expanded')!=='true';
+        if(tryb==='top'){ tylko(b); return; }          /* podmenu w pasku: zawsze jedna kategoria widoczna */
+        if(tryb==='nav'){ if(o) tylko(b); else otworz(b,false); return; } /* telefon: jedna rozwinięta naraz, krótsza lista */
+        otworz(b,o);                                      /* stopka: niezależnie */
+      });
+      if(tryb==='top'){
+        b.addEventListener('mouseenter',function(){ if(w.matchMedia('(hover:hover)').matches) tylko(b); });
+        b.addEventListener('focus',function(){ tylko(b); });
+      }
+    });
+    var akt=m.querySelector('.infm-kat.akt .infm-b');
+    if(tryb==='top') tylko(akt||bb[0]);
+    else if(akt && tryb==='nav') otworz(akt,true);
+  });
+  var t=d.getElementById('tinf'); if(!t) return;
+  var tb=t.querySelector('.tinf-b'), tp=d.getElementById('tinf-p'), tm, otwT=0, hov=w.matchMedia('(hover:hover) and (pointer:fine)');
+  function pokaz(o){ clearTimeout(tm); if(o&&tp.hidden) otwT=Date.now(); tp.hidden=!o; tb.setAttribute('aria-expanded',o?'true':'false'); t.classList.toggle('otw',o); }
+  tb.addEventListener('click',function(e){ e.stopPropagation(); if(tp.hidden) pokaz(true); else if(Date.now()-otwT>450) pokaz(false); });
+  t.addEventListener('mouseenter',function(){ if(hov.matches) pokaz(true); });
+  t.addEventListener('mouseleave',function(){ if(hov.matches){ clearTimeout(tm); tm=setTimeout(function(){ pokaz(false); },300); } });
+  d.addEventListener('click',function(e){ if(!tp.hidden && !t.contains(e.target)) pokaz(false); });
+  d.addEventListener('keydown',function(e){ if(e.key==='Escape' && !tp.hidden){ pokaz(false); tb.focus(); } });
+  t.addEventListener('focusout',function(e){ if(e.relatedTarget && !t.contains(e.relatedTarget)) pokaz(false); });
+  var bur=d.getElementById('burger'); if(bur) bur.addEventListener('click',function(){ pokaz(false); });
+})();
+
+/* ===== 13.11 (mail 15:43): objaśnienia pól formularza pod ikonką "i" =====
+   komputer: najechanie na ikonkę; telefon: dotknięcie; klawiatura: Tab + Enter/Spacja; zamykanie: krzyżyk, Esc, kliknięcie obok. */
+(function(){
+  var d=document, w=window, tipy=[].slice.call(d.querySelectorAll('.tip')); if(!tipy.length) return;
+  var hov=w.matchMedia('(hover:hover) and (pointer:fine)'), otw=null;
+  function el(t){ return { b:t.querySelector('.tip-b'), p:t.querySelector('.tip-t') }; }
+  function nazwij(t){ var p=t.closest('.pole'), l=p&&p.querySelector('label, .zakres-h'); if(l){ el(t).b.setAttribute('aria-label','Wyjaśnienie: '+l.textContent.replace(/\*/g,'').replace(/\s+/g,' ').trim()); } }
+  function pokaz(t,o,przypnij){
+    var e=el(t);
+    if(o){ if(otw&&otw!==t) pokaz(otw,false); var pole=t.closest('.pole'); if(pole){ var r=pole.getBoundingClientRect(), rb=e.b.getBoundingClientRect(); e.p.style.setProperty('--x',Math.max(10,Math.round(rb.left-r.left+rb.width/2-6))+'px'); } otw=t; }
+    else if(otw===t) otw=null;
+    e.p.hidden=!o; e.b.setAttribute('aria-expanded',o?'true':'false'); t.classList.toggle('przyp',!!(o&&przypnij));
+  }
+  tipy.forEach(function(t){
+    var e=el(t), tm; nazwij(t);
+    e.b.addEventListener('click',function(ev){ ev.preventDefault(); ev.stopPropagation(); var o=e.p.hidden||!t.classList.contains('przyp'); pokaz(t,o,o); });
+    t.querySelector('.tip-x').addEventListener('click',function(ev){ ev.preventDefault(); ev.stopPropagation(); pokaz(t,false); e.b.focus(); });
+    e.b.addEventListener('mouseenter',function(){ if(hov.matches){ clearTimeout(tm); if(e.p.hidden) pokaz(t,true,false); } });
+    t.addEventListener('mouseleave',function(){ if(hov.matches && !t.classList.contains('przyp')){ tm=setTimeout(function(){ pokaz(t,false); },200); } });
+    t.addEventListener('mouseenter',function(){ clearTimeout(tm); });
+  });
+  d.addEventListener('click',function(ev){ if(otw && !otw.contains(ev.target)) pokaz(otw,false); });
+  d.addEventListener('keydown',function(ev){ if(ev.key==='Escape' && otw){ var t=otw; pokaz(t,false); el(t).b.focus(); } });
 })();

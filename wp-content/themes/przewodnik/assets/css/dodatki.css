@@ -355,6 +355,7 @@ html:has(.rg-nav){scroll-padding-top:calc(var(--head) + 52px)}
 .mapa-trasa{margin:0;border:1px solid var(--line);aspect-ratio:auto}
 .mapa-trasa iframe{display:block;width:100%;height:min(68vh,600px);border:0}
 .mapa-podp{display:flex;flex-wrap:wrap;gap:6px 22px}
+.mapa-opis{margin:14px 0 0;font-size:17px;line-height:1.6}.mapa-opis p{margin:0 0 10px}
 .gal-w{margin-bottom:0}
 
 @media (max-width:1020px){

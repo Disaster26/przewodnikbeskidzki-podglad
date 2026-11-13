@@ -75,7 +75,7 @@
     tor.addEventListener('pointerup',kon); tor.addEventListener('pointercancel',kon);
     tor.addEventListener('click',function(e){ if(ruch){e.preventDefault();e.stopPropagation();} },true);
     w.addEventListener('resize',upd);
-    upd();
+    lic.textContent='1 / '+n; p.disabled=true; nx.disabled=false; /* 1.1: stan początkowy bez odczytu układu (tor na początku) */
   });
 
   /* przeciąganie myszą rzędów kart na wąskich ekranach */

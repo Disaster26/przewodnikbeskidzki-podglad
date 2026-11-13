@@ -1,9 +1,9 @@
-<!doctype html>
-<html lang="pl-PL">
+<!doctype html>
+<html lang="pl-PL">
 <head>
-<meta name="robots" content="noindex,nofollow">
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>Muzeum w Czerwonym Klasztorze - historia zakonników i tajemnice klasztornych murów | Jagoda Jurkowska, przewodnik</title>
 <meta name='robots' content='noindex, nofollow' />
 <meta name="google-site-verification" content="uiUVegZmXElDgSdueQCQf8wwRRkpelNydPxq1lzx4sg">
@@ -41,8 +41,7 @@ ul{margin:0;padding:0;list-style:none}
 .znak{display:inline-block;flex:none;width:30px;height:30px;border-radius:2px;
   background:linear-gradient(#fff 0 33.4%,var(--k,var(--red)) 33.4% 66.6%,#fff 66.6%);
   box-shadow:0 0 0 1px rgba(23,32,27,.18),0 1px 2px rgba(23,32,27,.14)}
-.sep,.tab .sep{font-size:0 !important;display:inline-block;width:4px;height:4px;border-radius:50%;background:currentColor;opacity:.55;margin:0 9px;vertical-align:middle;position:relative;top:-2px}
-.tab .sep{margin:0 7px}
+.sep{font-size:0 !important;display:inline-block;width:4px;height:4px;border-radius:50%;background:currentColor;opacity:.55;margin:0 9px;vertical-align:middle;position:relative;top:-2px}
 /* tabliczka drogowskazu w hero */
 .hero-tab{display:inline-flex;align-items:center;gap:12px;background:var(--yellow);color:var(--ink);margin:0 0 26px;padding:9px 46px 7px 10px;
   clip-path:polygon(0 0,calc(100% - 26px) 0,100% 50%,calc(100% - 26px) 100%,0 100%);box-shadow:0 2px 0 rgba(0,0,0,.18)}
@@ -110,24 +109,6 @@ h3{font-size:22px;font-weight:800}
 /* gdzie - drogowskaz */
 .sek-ciemna{background:var(--spruce);color:#fff}
 .sek-ciemna .glowa p,.sek-ciemna p{color:#D5E2D9}
-.gdzie{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:64px;align-items:center}
-.gdzie-tx p{font-size:18.5px}
-.gdzie .glowa{margin-bottom:28px}
-.slup{position:relative;padding:0 0 0 0;--post:28px}
-.slup::before{content:"";position:absolute;left:50%;top:0;bottom:-104px;width:var(--post);transform:translateX(-50%);
-  background:linear-gradient(90deg,#9aa39d,#d9dfdb 40%,#aab3ad 70%,#7d8781)}
-.slup-glowka{position:relative;z-index:2;margin:0 auto 18px;width:max-content;background:var(--yellow);color:var(--ink);font-weight:800;font-size:18px;padding:12px 22px 9px;border-radius:3px;
-  box-shadow:0 2px 0 rgba(0,0,0,.25)}
-.slup-glowka span{display:block;text-align:center}
-.tabliczki{position:relative;z-index:2;display:flex;flex-direction:column;gap:12px}
-.tab{position:relative;display:grid;grid-template-columns:auto minmax(0,1fr);column-gap:14px;align-items:center;background:var(--yellow);color:var(--ink);
-  width:calc(50% + 150px);margin-left:calc(50% - 150px);padding:13px 46px 11px 18px;clip-path:polygon(0 0,calc(100% - 30px) 0,100% 50%,calc(100% - 30px) 100%,0 100%);
-  box-shadow:0 2px 0 rgba(0,0,0,.2)}
-.tab-l{margin-left:0;margin-right:calc(50% - 150px);padding:13px 18px 11px 46px;clip-path:polygon(30px 0,100% 0,100% 100%,30px 100%,0 50%)}
-.tab .znak{grid-row:span 2;width:28px;height:28px;box-shadow:0 0 0 1px rgba(23,32,27,.3)}
-.tab b{font-size:20px;font-weight:800;line-height:1.2}
-.tab span:not(.znak){font-size:14.5px;line-height:1.35;color:#2e3530}
-
 /* trasy */
 .trasy{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:22px}
 .trasa,.relacja{background:#fff;border-radius:var(--r);overflow:hidden;border:1px solid var(--line);min-width:0;display:flex;flex-direction:column}
@@ -238,13 +219,9 @@ h3{font-size:22px;font-weight:800}
 
 @media (max-width:1180px){
   .grupy,.trasy{grid-template-columns:repeat(2,minmax(0,1fr))}
-  .gdzie{gap:40px}
-  .tab{width:calc(50% + 120px);margin-left:calc(50% - 120px)}
-  .tab-l{margin-left:0;margin-right:calc(50% - 120px)}
 }
 @media (max-width:1020px){
-  .gdzie,.omnie,.cennik,.kontakt{grid-template-columns:1fr}
-  .slup::before{bottom:-104px}
+  .omnie,.cennik,.kontakt{grid-template-columns:1fr}
   .omnie-foto{max-width:720px}
 }
 
@@ -286,12 +263,6 @@ h3{font-size:22px;font-weight:800}
   .grupa-tx{padding:18px 18px 20px}
   .trasa .sw{aspect-ratio:4/3}
 
-  .gdzie{gap:26px}
-  .slup::before{left:24px;transform:none;bottom:-68px}
-  .slup-glowka{margin:0 0 14px 0}
-  .tab,.tab-l{width:auto;margin:0 0 0 0;padding:12px 40px 10px 14px;clip-path:polygon(0 0,calc(100% - 24px) 0,100% 50%,calc(100% - 24px) 100%,0 100%)}
-  .tab b{font-size:18.5px}
-  .tab span:not(.znak){font-size:14px}
 
   .omnie{gap:26px}
   #o-mnie .glowa > .znak::before{display:none}
@@ -735,8 +706,6 @@ a.reg-k:hover b{color:var(--red-d)}
   .stopka-kol.s5{grid-template-columns:1fr 1fr;gap:18px 14px}
   .stopka-kol.s5 > div:first-child{grid-column:1/-1}
 }
-.tab-a{color:inherit;text-decoration:none}
-.tab-a:hover{text-decoration:underline;text-underline-offset:3px}
 .sek-ciemna .lnk{color:var(--yellow)}
 .droga,.rel-l{list-style:none;margin:0}
 .droga{padding:0}
@@ -1091,8 +1060,6 @@ a.term-zap{display:inline-flex;align-items:center;justify-content:center;text-de
 .mapa-l ul li{border:0;padding:3px 0}
 .kon-sc{margin-top:28px;grid-template-columns:repeat(2,minmax(0,1fr))}
 .mapa-zast{display:flex;align-items:center;justify-content:center;min-height:180px;background:var(--bg-2);border:1.5px dashed var(--line);border-radius:var(--r);font-weight:700;color:var(--ink);text-decoration:none}
-.gdzie-tx .mapa{margin:20px 0 18px;border-radius:var(--r);overflow:hidden}
-.gdzie-tx .mapa iframe{height:240px}
 
 /* baner zgód */
 .cookies{position:fixed;left:16px;right:16px;bottom:16px;z-index:60;max-width:560px;background:#fff;border:1px solid var(--line);border-top:4px solid var(--red);border-radius:var(--r);box-shadow:0 10px 30px rgba(23,32,27,.18);padding:18px 20px}
@@ -1730,11 +1697,6 @@ html:has(.rg-nav){scroll-padding-top:calc(var(--head) + 52px)}
 .inf-dz-k::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,16,12,.1),rgba(10,16,12,.78))}
 .inf-dz-tx{position:absolute;left:0;right:0;bottom:0;z-index:1;padding:14px 16px;display:flex;flex-direction:column;gap:2px}
 .inf-dz-tx b{font-size:21px}.inf-dz-tx small{font-size:14px;opacity:.92}
-.inf-pbb{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:18px;background:#fff;border:1px solid var(--line);border-left:6px solid var(--g-green);border-radius:var(--r);padding:22px 24px}
-.inf-pbb h3{font-size:26px;margin:0 0 6px}
-.inf-pbb p{margin:0 0 10px;color:var(--ink-2);max-width:620px}
-.inf-pbb ul{display:flex;flex-wrap:wrap;gap:6px 18px;margin:0;padding:0;list-style:none;font-weight:700;font-size:15px}
-.inf-pbb li::before{content:"\2713";color:var(--g-green);margin-right:6px}
 .inf-lista{columns:2 340px;column-gap:28px;margin:6px 0 0;padding:0;list-style:none}
 .inf-lista li{break-inside:avoid;padding:9px 0 8px;border-top:1px solid var(--line);display:flex;flex-direction:column;gap:2px}
 .inf-lista li[hidden]{display:none}
@@ -1753,7 +1715,7 @@ html:has(.rg-nav){scroll-padding-top:calc(var(--head) + 52px)}
 .op-tr[hidden]{display:none}
 .op-wynik{margin:-8px 0 10px}
 @media (max-width:1020px){.inf-art{grid-template-columns:repeat(2,minmax(0,1fr))}}
-@media (max-width:760px){.inf-hero{min-height:380px}.inf-reg{grid-template-columns:1fr 1fr;gap:8px}.inf-reg-k{min-height:160px}.inf-reg-tx b{font-size:19px}.inf-reg-tx small{display:none}.inf-reg-tx em{font-size:12.5px;padding:6px 10px 5px}.inf-dz{grid-template-columns:1fr;gap:8px}.inf-dz-k{min-height:130px}.inf-art{grid-template-columns:1fr}.inf-pbb{padding:18px 16px}}
+@media (max-width:760px){.inf-hero{min-height:380px}.inf-reg{grid-template-columns:1fr 1fr;gap:8px}.inf-reg-k{min-height:160px}.inf-reg-tx b{font-size:19px}.inf-reg-tx small{display:none}.inf-reg-tx em{font-size:12.5px;padding:6px 10px 5px}.inf-dz{grid-template-columns:1fr;gap:8px}.inf-dz-k{min-height:130px}.inf-art{grid-template-columns:1fr}}
 
 /* 13.11 rano: formularz zapytania w trzech częściach, strona główna */
 .form-cz{grid-column:1/-1;display:grid;grid-template-columns:1fr 1fr;gap:16px 18px;border:1px solid var(--line);border-radius:var(--r);padding:16px 18px 18px;margin:0;background:#fff;min-width:0}
@@ -1769,7 +1731,6 @@ html:has(.rg-nav){scroll-padding-top:calc(var(--head) + 52px)}
 .grupy-r{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px;align-items:stretch}
 .grupy-r .grupa-tx{display:flex;flex-direction:column;flex:1}
 .grupy-r .grupa-tx .lnk{margin-top:auto}
-.gdzie-baza{border-left:4px solid var(--red);padding-left:12px}
 .inf-art-3{grid-template-columns:repeat(3,minmax(0,1fr))}
 .gl-op{margin-top:6px}
 .rel-reg{font-size:12.5px;font-weight:800;color:var(--g-green)}
@@ -1828,21 +1789,6 @@ html:has(.rg-nav){scroll-padding-top:calc(var(--head) + 52px)}
 @media (max-width:900px){.kalm{grid-template-columns:1fr;gap:18px}.kalm-kal{max-width:520px}}
 @media (max-width:420px){.kalm-kal{padding:12px 0 10px;border-left:0;border-right:0;border-radius:0}.kalm-nag{padding:0 6px}.kalm-leg{margin:10px 10px 0}.kalm-d{min-height:46px}.kalm-l{grid-template-columns:1fr}}
 
-/* ===== 13.11 (mail 13:06): drogowskaz regionów jako nawigacja do stron regionów w Informatorze ===== */
-.tab{cursor:pointer;transition:filter .2s}
-.tab-a::after{content:"";position:absolute;inset:0;z-index:1}
-.tab-a:focus-visible{outline:none}
-.tab:focus-within{outline:3px solid var(--ink);outline-offset:-3px}
-/* 13.11 (mail 15:43): bez krótkich opisów; widoczne "Poznaj region" prowadzi do strony regionu w Informatorze, Szczawnica na główce = link */
-.tab .znak{grid-row:span 3}
-.tab .tab-cta{grid-column:2;justify-self:start;font-weight:800;font-size:14.5px;color:var(--red-d);margin-top:4px;text-decoration:none;line-height:1.3}
-.tab .tab-cta i{font-style:normal}
-
-@media (hover:hover){.tab:hover,.tab:focus-within{filter:brightness(1.04)}.tab:hover .tab-cta{text-decoration:underline;text-underline-offset:3px}}
-.slup-a{display:block;color:inherit;text-decoration:none;text-align:center}
-.slup-a:hover{text-decoration:underline;text-underline-offset:3px}
-.slup-a:focus-visible{outline:3px solid #fff;outline-offset:4px}
-
 /* ===== 13.11 (mail 15:43): Informator turystyczny - podmenu w pasku, akordeon w menu i w stopce ===== */
 .infm{list-style:none;margin:0;padding:0}
 .infm-l{list-style:none;margin:0;padding:0}
@@ -1850,36 +1796,13 @@ html:has(.rg-nav){scroll-padding-top:calc(var(--head) + 52px)}
 .infm-b svg{width:13px;height:13px;flex:none;fill:none;stroke:currentColor;stroke-width:3;stroke-linecap:round;stroke-linejoin:round;transition:transform .2s;opacity:.75}
 .infm-kat.otw > .infm-b svg{transform:rotate(180deg)}
 .infm-ile{font-size:12.5px;font-weight:700;color:var(--mut);background:var(--bg-2);border-radius:20px;padding:2px 8px 1px;line-height:1.4}
-.infm-b:focus-visible,.tinf-b:focus-visible,.nav-zamk:focus-visible,.infm a:focus-visible{outline:3px solid var(--ink);outline-offset:2px}
+.infm-b:focus-visible,.nav-zamk:focus-visible,.infm a:focus-visible{outline:3px solid var(--ink);outline-offset:2px}
 .infm-top a,.infm-nav a{display:flex;align-items:center;gap:10px;min-height:44px;padding:9px 10px 7px;border-radius:4px;text-decoration:none;color:var(--ink);font-weight:600;font-size:15.5px;line-height:1.25}
 .infm-top a:hover,.infm-nav a:hover{background:var(--bg-2)}
 .infm-top a .znak,.infm-nav a .znak{width:18px;height:18px;flex:none;grid-row:auto}
 .infm a[aria-current]{color:var(--red-d);font-weight:800}
 .infm-wsz a{color:var(--red) !important;font-weight:700}
 .infm-wsz a::after{content:" \2192";white-space:pre}
-
-/* pozycja w pasku (komputer): rozwija się po najechaniu albo kliknięciu */
-.tinf{position:relative;display:none;height:100%;align-items:center}
-.tinf-b{display:flex;align-items:center;gap:8px;height:46px;padding:0 14px;border:0;background:none;font:700 16px/1 var(--f);color:var(--ink);cursor:pointer;position:relative;border-radius:4px;white-space:nowrap}
-.tinf-b svg{width:12px;height:12px;fill:none;stroke:currentColor;stroke-width:3;stroke-linecap:round;stroke-linejoin:round;transition:transform .2s;opacity:.75;margin-top:-2px}
-.tinf-b::after{content:"";position:absolute;left:14px;right:14px;bottom:4px;height:3px;background:var(--red);transform:scaleX(0);transform-origin:left;transition:transform .2s}
-.tinf:hover .tinf-b::after,.tinf.otw .tinf-b::after,.tinf.akt .tinf-b::after{transform:scaleX(1)}
-.tinf.otw .tinf-b svg{transform:rotate(180deg)}
-.tinf-p{position:absolute;top:100%;right:-60px;z-index:61}
-.tinf-p[hidden]{display:none}
-.tinf-in{position:relative;width:640px;min-height:250px;background:#fff;border:1px solid var(--line);border-top:4px solid var(--red);border-radius:0 0 var(--r) var(--r);box-shadow:0 20px 44px rgba(23,32,27,.16);padding:14px}
-.infm-top{width:214px}
-.infm-top .infm-b{display:flex;align-items:center;gap:8px;width:100%;min-height:48px;padding:11px 12px 9px;border:0;background:none;font:700 16px/1.2 var(--f);color:var(--ink);text-align:left;cursor:pointer;border-radius:4px}
-.infm-top .infm-b > span{flex:1}
-.infm-top .infm-b svg,.infm-top .infm-kat.otw > .infm-b svg{transform:rotate(-90deg)}
-.infm-top .infm-kat.otw > .infm-b{background:var(--bg-2);color:var(--red-d)}
-.infm-top .infm-l{position:absolute;left:244px;right:14px;top:14px;bottom:14px;overflow-y:auto;display:grid;grid-template-columns:1fr 1fr;gap:2px 8px;align-content:start;border-left:1px solid var(--line);padding-left:16px}
-.infm-top .infm-wsz{grid-column:1/-1;border-top:1px solid var(--line);margin-top:4px;padding-top:4px}
-.tinf-all{display:block;width:214px;margin-top:10px;padding:12px 12px 8px;border-top:1px solid var(--line);font-weight:700;color:var(--red);text-decoration:none}
-.tinf-all::after{content:" \2192"}
-.tinf-all:hover{text-decoration:underline;text-underline-offset:3px}
-@media (min-width:1000px){.tinf{display:flex}}
-@media (min-width:1000px) and (max-width:1240px){.tinf-p{right:-110px}}
 
 /* menu rozwijane ikoną (telefon i komputer): akordeon wielopoziomowy */
 .infm-nav .infm-b{display:flex;align-items:center;gap:10px;width:100%;min-height:50px;padding:12px 8px 10px;border:0;border-bottom:1px solid var(--line);background:none;font:700 16.5px/1.2 var(--f);color:var(--ink);text-align:left;cursor:pointer}
@@ -1937,6 +1860,69 @@ html:has(.rg-nav){scroll-padding-top:calc(var(--head) + 52px)}
 .z-wybr .z-zmien{align-self:flex-start;margin-top:6px;font-size:15px}
 .pole[hidden]{display:none}
 
+/* ===== 13.11 wieczór (mail 19:44): obszar działalności (baza + znaki regionów) i "Regiony bez błądzenia" ===== */
+.ikr{width:44px;height:44px;flex:none;fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+#gdzie .glowa{margin-bottom:30px}
+.baza{display:flex;align-items:center;gap:16px;background:var(--yellow);color:var(--ink);border-radius:var(--r);padding:16px 20px 14px;margin:0 0 18px;box-shadow:0 2px 0 rgba(0,0,0,.2)}
+.baza .ikr{width:46px;height:46px;color:var(--red-d)}
+.baza-tx{display:flex;flex-direction:column;flex:1;min-width:0;line-height:1.3}
+.baza-et{font-size:13px;font-weight:800;letter-spacing:.02em;color:#3d3a1f}
+.baza-tx b{font-size:24px;font-weight:800;line-height:1.15}
+.baza-tx span:last-child{font-size:15px;color:#2e3530}
+.baza-a{flex:none;font-weight:800;font-size:15.5px;color:var(--ink);text-decoration:none;border-bottom:2px solid currentColor;padding-bottom:1px}
+.baza-a:hover{color:var(--red-d)}
+.baza-a:focus-visible{outline:3px solid var(--ink);outline-offset:3px}
+.baza-a i{font-style:normal}
+.znaki{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:12px}
+.znk{position:relative;display:flex;flex-direction:column;align-items:center;text-align:center;gap:8px;padding:20px 10px 16px;border:1px solid rgba(255,255,255,.18);border-radius:var(--r);background:rgba(255,255,255,.05);transition:background .2s,border-color .2s}
+.znk .ikr{width:72px;height:72px;padding:10px;border-radius:50%;background:#fff;color:var(--spruce);stroke-width:2.4}
+.znk b{font-size:17px;font-weight:800;line-height:1.2;min-height:2.4em;display:flex;align-items:center}
+.znk-a{font-size:14.5px;font-weight:800;color:var(--yellow);text-decoration:none;line-height:1.3}
+.znk-a i{font-style:normal}
+.znk-a::after{content:"";position:absolute;inset:0;border-radius:inherit}
+.znk-a:focus-visible{outline:none}
+.znk:focus-within{outline:3px solid var(--yellow);outline-offset:2px}
+@media (hover:hover){.znk:hover{background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.4)}.znk:hover .znk-a{text-decoration:underline;text-underline-offset:3px}}
+.sek-prd .glowa{margin-bottom:18px}
+.prd-zakres{list-style:none;margin:0 0 22px;padding:0;display:flex;flex-wrap:wrap;gap:6px 18px;font-weight:700;font-size:15px;color:var(--ink-2)}
+.prd-zakres li::before{content:"\2713";color:var(--g-green);margin-right:6px}
+.prd{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.prd-k{position:relative;display:flex;align-items:center;gap:14px;min-height:88px;padding:8px 14px 8px 8px;background:#fff;border:1px solid var(--line);border-left:5px solid var(--g-green);border-radius:var(--r);transition:border-color .2s,box-shadow .2s}
+.prd-f{width:72px;height:72px;flex:none;object-fit:cover;border-radius:4px;background:var(--bg-2)}
+.prd-tx{display:flex;flex-direction:column;gap:3px;min-width:0}
+.prd-tx b{font-size:16.5px;font-weight:800;line-height:1.25}
+.prd-a{font-size:14.5px;font-weight:800;color:var(--red);text-decoration:none}
+.prd-a i{font-style:normal}
+.prd-a::after{content:"";position:absolute;inset:0;border-radius:inherit}
+.prd-a:focus-visible{outline:none}
+.prd-k:focus-within{outline:3px solid var(--ink);outline-offset:2px}
+@media (hover:hover){.prd-k:not(.prd-off):hover{border-color:var(--g-green);box-shadow:0 6px 18px rgba(23,32,27,.08)}.prd-k:hover .prd-a{text-decoration:underline;text-underline-offset:3px}}
+.prd-off{border-left-color:var(--line);background:#fbfcfb}
+.prd-off .prd-f{filter:grayscale(1);opacity:.55}
+.prd-off .prd-tx b{color:var(--ink-2)}
+.prd-wk{align-self:flex-start;font-size:12.5px;font-weight:800;color:var(--mut);background:var(--bg-2);border:1px solid var(--line);border-radius:20px;padding:2px 10px 1px}
+.prd-blok{margin-top:34px}
+.prd-blok h3{font-size:26px;margin:0 0 6px}
+.prd-blok > p{margin:0 0 12px;color:var(--ink-2);max-width:760px}
+.prd-blok .prd-zakres{margin-bottom:18px}
+@media (max-width:1180px){.znaki{grid-template-columns:repeat(4,minmax(0,1fr))}.prd{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:760px){
+  .baza{flex-wrap:wrap;gap:6px 14px;padding:14px 16px 12px}
+  .baza .ikr{width:40px;height:40px}
+  .baza-tx b{font-size:21px}
+  .baza-tx{flex:1 1 calc(100% - 60px)}
+  .baza-a{margin-left:54px}
+  .znaki{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+  .znk{padding:14px 8px 12px;gap:6px}
+  .znk:last-child:nth-child(odd){grid-column:1/-1;justify-self:center;width:calc(50% - 5px)}
+  .znk .ikr{width:60px;height:60px;padding:8px}
+  .znk b{font-size:16px;min-height:0}
+  .prd{grid-template-columns:1fr;gap:8px}
+  .prd-k{min-height:72px}
+  .prd-f{width:56px;height:56px}
+  .prd-zakres{font-size:14px;gap:4px 14px;margin-bottom:16px}
+}
+
 </style>
 <link rel="icon" href="https://disaster26.github.io/przewodnikbeskidzki-podglad/wp-content/themes/przewodnik/assets/img/logo.svg" type="image/svg+xml">
 <meta name="theme-color" content="#ffffff">
@@ -1959,40 +1945,36 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 </style>
 
 <link rel="canonical" href="https://disaster26.github.io/przewodnikbeskidzki-podglad/spacery/oprowadzanie-muzeum-w-czerwonym-klasztorze/" />
-</head>
-<body class="wp-singular pb_spacer-template-default single single-pb_spacer postid-1967 wp-embed-responsive wp-theme-przewodnik typ-pb_spacer">
-<a class="skip" href="#tresc">Przejdź do treści</a>
-<div class="pasek">
-  <div class="pasek-in">
-    <span class="pasek-upr">Licencjonowany przewodnik beskidzki, przewodnik terenowy i pilot wycieczek</span>
-    <div class="pasek-kon"><a class="pk-tel" href="tel:+48692133969">692 133 969</a><a href="mailto:jagjur@poczta.onet.pl">jagjur@poczta.onet.pl</a><div class="soc soc-p"><a class="m-fb" href="https://www.facebook.com/share/1DDXdH6URu/?mibextid=wwXIfr" rel="noopener" target="_blank" aria-label="Facebook: Usługi przewodnickie i pilotaż wycieczek - Jagoda Jurkowska"><svg class="lg-fb" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M9.101 23.691v-7.98H6.627v-3.667h2.474v-1.58c0-4.085 1.848-5.978 5.858-5.978.401 0 .955.042 1.468.103a8.68 8.68 0 0 1 1.141.195v3.325a8.623 8.623 0 0 0-.653-.036 26.805 26.805 0 0 0-.733-.009c-.707 0-1.259.096-1.675.309a1.686 1.686 0 0 0-.679.622c-.258.42-.374.995-.374 1.752v1.297h3.919l-.386 2.103-.287 1.564h-3.246v8.245C19.396 23.238 24 18.179 24 12.044c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.628 3.874 10.35 9.101 11.647Z"/></svg></a><a class="m-ig" href="https://www.instagram.com/przewodnik_pieninski/" rel="noopener" target="_blank" aria-label="Instagram: przewodnik_pieninski"><svg class="lg-ig" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M7.03.084c-1.277.06-2.149.264-2.911.563-.789.308-1.458.72-2.123 1.388-.665.668-1.075 1.337-1.38 2.127-.296.764-.496 1.637-.552 2.914-.057 1.278-.069 1.688-.063 4.947.006 3.259.021 3.667.083 4.947.061 1.277.264 2.148.564 2.911.308.789.72 1.457 1.388 2.123.668.665 1.336 1.074 2.128 1.38.763.295 1.636.496 2.913.552 1.278.056 1.689.069 4.946.063 3.258-.006 3.668-.021 4.948-.081 1.28-.061 2.147-.265 2.91-.563.789-.309 1.458-.72 2.123-1.388.665-.668 1.074-1.338 1.379-2.128.296-.763.497-1.636.552-2.912.056-1.281.069-1.69.063-4.948-.006-3.258-.021-3.667-.082-4.947-.061-1.28-.264-2.148-.563-2.911-.309-.789-.72-1.457-1.388-2.123C21.298 1.33 20.628.921 19.838.617 19.074.321 18.202.12 16.924.065 15.647.009 15.236-.005 11.977.001 8.718.008 8.31.022 7.03.084m.14 21.693c-1.17-.051-1.805-.245-2.229-.408-.56-.216-.96-.477-1.382-.895-.422-.418-.681-.819-.9-1.378-.164-.423-.362-1.058-.417-2.228-.06-1.265-.072-1.644-.079-4.848-.007-3.204.005-3.583.061-4.848.05-1.169.246-1.805.408-2.228.216-.561.476-.96.895-1.382.419-.422.818-.681 1.378-.9.423-.165 1.058-.361 2.227-.417 1.266-.06 1.645-.072 4.848-.079 3.203-.007 3.584.005 4.85.061 1.169.051 1.805.245 2.228.408.561.216.96.475 1.382.895.422.419.682.818.9 1.379.166.422.362 1.056.417 2.226.06 1.266.074 1.645.08 4.848.006 3.203-.006 3.583-.061 4.848-.051 1.17-.245 1.806-.408 2.23-.216.56-.476.96-.895 1.381-.419.422-.818.681-1.378.9-.422.165-1.058.362-2.226.417-1.266.06-1.645.072-4.85.079-3.204.007-3.582-.006-4.848-.061M16.953 5.586a1.44 1.44 0 1 0 1.437-1.442 1.44 1.44 0 0 0-1.437 1.442M5.839 12.012a6.161 6.161 0 1 0 12.323-.024 6.162 6.162 0 0 0-12.323.024M8 12.008a4 4 0 1 1 4.008 3.992A4 4 0 0 1 8 12.008"/></svg></a><a class="m-wa" href="https://wa.me/48692133969" rel="noopener" target="_blank" aria-label="Napisz na WhatsApp"><svg class="lg-wa" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg></a></div></div>
-  </div>
-</div>
-<header class="top" id="top">
-  <div class="top-in">
-    <a class="logo" href="https://disaster26.github.io/przewodnikbeskidzki-podglad/" aria-label="Jagoda Jurkowska, Przewodnik Beskidzki - strona główna">
-      <img class="logo-jj" src="https://disaster26.github.io/przewodnikbeskidzki-podglad/wp-content/themes/przewodnik/assets/img/logo-jagoda.webp" alt="Logo: mgr Jagoda Jurkowska, Przewodnik Beskidzki" width="238" height="210">
-      <span class="logo-tx"><b>Jagoda Jurkowska</b><span>Przewodnik Beskidzki, Szczawnica</span></span>
-    </a>
-    <nav class="nav" id="nav" aria-label="Menu główne">
-      <ul class="nav-l">
-        <li><a href="https://disaster26.github.io/przewodnikbeskidzki-podglad/">Strona główna</a></li>        <li class="gr"><button class="gr-b" type="button" aria-expanded="false" aria-controls="m-oferta">Oferta<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 9l7 7 7-7"/></svg></button>
-          <div class="drop" id="m-oferta"><div class="drop-in"><a href="https://disaster26.github.io/przewodnikbeskidzki-podglad/oferta/szkoly/"><span class="znak" style="--k:var(--g-green)" aria-hidden="true"></span><b>Szkoły</b><small>wycieczki klasowe, zielone szkoły</small></a><a href="https://disaster26.github.io/przewodnikbeskidzki-podglad/oferta/grupy/"><span class="znak" style="--k:var(--g-blue)" aria-hidden="true"></span><b>KGW, seniorzy i grupy zorganizowane</b><small>spokojne tempo, regionalne smaki</small></a><a href="https://disaster26.github.io/przewodnikbeskidzki-podglad/oferta/biura/"><span class="znak" style="--k:var(--g-black)" aria-hidden="true"></span><b>Biura podróży</b><small>prowadzenie i pilotaż grup</small></a><a href="https://disaster26.github.io/przewodnikbeskidzki-podglad/oferta/rodziny/"><span class="znak" style="--k:var(--g-yellow)" aria-hidden="true"></span><b>Rodziny i turyści indywidualni</b><small>trasa pod Wasze tempo</small></a><a href="https://disaster26.github.io/przewodnikbeskidzki-podglad/oferta/" class="drop-all">Cała oferta</a></div></div></li>
-        <li><a href="https://disaster26.github.io/przewodnikbeskidzki-podglad/trasy/">Trasy i wycieczki</a></li><li><a href="https://disaster26.github.io/przewodnikbeskidzki-podglad/spacery/" class="akt">Wycieczki z przewodnikiem<span class="nav-dop"> - dołącz do grupy</span></a></li>        <li class="gr gr-inf"><button class="gr-b" type="button" aria-expanded="false" aria-controls="m-inf">Informator turystyczny<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 9l7 7 7-7"/></svg></button>
-          <div class="drop" id="m-inf"><div class="drop-in"><ul class="infm infm-nav" data-infm="nav"><li class="infm-kat" data-kat="regiony"><button type="button" class="infm-b" aria-expanded="false" aria-controls="infm-nav-regiony"><span>Regiony</span><small class="infm-ile">7</small><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 9l7 7 7-7"/></svg></button><ul class="infm-l" id="infm-nav-regiony" hidden><li><a href="https://disaster26.github.io/przewodnikbeskidzki-podglad/pieniny/"><span class="znak" style="--k:var(--red)" aria-hidden="true"></span><span>Pieniny</span></a></li><li><a href="https://disaster26.github.io/przewodnikbeskidzki-podglad/gorce/"><span class="znak" style="--k:var(--g-green)" aria-hidden="true"></span><span>Gorce</span></a></li><li><a href="https://disaster26.github.io/przewodnikbeskidzki-podglad/beskid-sadecki/"><span class="znak" style="--k:var(--g-blue)" aria-hidden="true"></span><span>Beskid Sądecki</span></a></li><li><a href="https://disaster26.github.io/przewodnikbeskidzki-podglad/podhale/"><span class="znak" style="--k:var(--g-yellow)" aria-hidden="true"></span><span>Podhale</span></a></li><li><a href="https://disaster26.github.io/przewodnikbeskidzki-podglad/spisz/"><span class="znak" style="--k:var(--g-black)" aria-hidden="true"></span><span>Spisz</span></a></li><li><a href="https://disaster26.github.io/przewodnikbeskidzki-podglad/orawa/"><span class="znak" style="--k:var(--g-black)" aria-hidden="true"></span><span>Orawa</span></a></li><li><a href="https://disaster26.github.io/przewodnikbeskidzki-podglad/slowacja/"><span class="znak" style="--k:var(--red)" aria-hidden="true"></span><span>Słowacja</span></a></li><li class="infm-wsz"><a href="https://disaster26.github.io/przewodnikbeskidzki-podglad/informator/#regiony">Wszystkie regiony</a></li></ul></li><li class="infm-kat" data-kat="miejscowosci"><button type="button" class="infm-b" aria-expanded="false" aria-controls="infm-nav-miejscowosci"><span>Miejscowości</span><small class="infm-ile">3</small><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 9l7 7 7-7"/></svg></button><ul class="infm-l" id="infm-nav-miejscowosci" hidden><li><a href="https://disaster26.github.io/przewodnikbeskidzki-podglad/pieniny/szczawnica/"><span class="znak" style="--k:var(--red)" aria-hidden="true"></span><span>Szczawnica</span></a></li><li><a href="https://disaster26.github.io/przewodnikbeskidzki-podglad/pieniny/kroscienko-nad-dunajcem/"><span class="znak" style="--k:var(--red)" aria-hidden="true"></span><span>Krościenko nad Dunajcem</span></a></li><li><a href="https://disaster26.github.io/przewodnikbeskidzki-podglad/spisz/niedzica/"><span class="znak" style="--k:var(--red)" aria-hidden="true"></span><span>Niedzica</span></a></li><li class="infm-wsz"><a href="https://disaster26.github.io/przewodnikbeskidzki-podglad/informator/#miejscowosci">Wszystkie miejscowości</a></li></ul></li><li class="infm-kat" data-kat="dzialy"><button type="button" class="infm-b" aria-expanded="false" aria-controls="infm-nav-dzialy"><span>Działy</span><small class="infm-ile">4</small><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 9l7 7 7-7"/></svg></button><ul class="infm-l" id="infm-nav-dzialy" hidden><li><a href="https://disaster26.github.io/przewodnikbeskidzki-podglad/informator/atrakcje/"><span class="znak" style="--k:var(--red)" aria-hidden="true"></span><span>Atrakcje</span></a></li><li><a href="https://disaster26.github.io/przewodnikbeskidzki-podglad/informator/historia-i-kultura/"><span class="znak" style="--k:var(--red)" aria-hidden="true"></span><span>Historia i kultura</span></a></li><li><a href="https://disaster26.github.io/przewodnikbeskidzki-podglad/informator/porady/"><span class="znak" style="--k:var(--red)" aria-hidden="true"></span><span>Porady turystyczne</span></a></li><li><a href="https://disaster26.github.io/przewodnikbeskidzki-podglad/informator/pieniny-bez-bladzenia/"><span class="znak" style="--k:var(--g-green)" aria-hidden="true"></span><span>Pieniny bez błądzenia</span></a></li><li class="infm-wsz"><a href="https://disaster26.github.io/przewodnikbeskidzki-podglad/informator/#dzialy">Wszystkie działy</a></li></ul></li></ul><a href="https://disaster26.github.io/przewodnikbeskidzki-podglad/informator/" class="drop-all">Cały Informator turystyczny</a></div></div></li>
-        <li><a href="https://disaster26.github.io/przewodnikbeskidzki-podglad/relacje/">Relacje i aktualności</a></li><li><a href="https://disaster26.github.io/przewodnikbeskidzki-podglad/galeria/">Galeria</a></li><li><a href="https://disaster26.github.io/przewodnikbeskidzki-podglad/o-mnie/">O mnie</a></li><li><a href="https://disaster26.github.io/przewodnikbeskidzki-podglad/cennik/">Cennik</a></li><li><a href="https://disaster26.github.io/przewodnikbeskidzki-podglad/kontakt/">Kontakt</a></li>      </ul>
-      <button class="nav-zamk" type="button" data-nav-zamknij>Zamknij menu<span aria-hidden="true">&times;</span></button>
-      <a class="nav-tel" href="tel:+48692133969"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1A17 17 0 0 1 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1z"/></svg>692 133 969</a>
-    </nav>
-    <div class="tinf" id="tinf">
-      <button class="tinf-b" type="button" aria-expanded="false" aria-controls="tinf-p">Informator turystyczny<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 9l7 7 7-7"/></svg></button>
-      <div class="tinf-p" id="tinf-p" hidden><div class="tinf-in"><ul class="infm infm-top" data-infm="top"><li class="infm-kat" data-kat="regiony"><button type="button" class="infm-b" aria-expanded="false" aria-controls="infm-top-regiony"><span>Regiony</span><small class="infm-ile">7</small><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 9l7 7 7-7"/></svg></button><ul class="infm-l" id="infm-top-regiony" hidden><li><a href="https://disaster26.github.io/przewodnikbeskidzki-podglad/pieniny/"><span class="znak" style="--k:var(--red)" aria-hidden="true"></span><span>Pieniny</span></a></li><li><a href="https://disaster26.github.io/przewodnikbeskidzki-podglad/gorce/"><span class="znak" style="--k:var(--g-green)" aria-hidden="true"></span><span>Gorce</span></a></li><li><a href="https://disaster26.github.io/przewodnikbeskidzki-podglad/beskid-sadecki/"><span class="znak" style="--k:var(--g-blue)" aria-hidden="true"></span><span>Beskid Sądecki</span></a></li><li><a href="https://disaster26.github.io/przewodnikbeskidzki-podglad/podhale/"><span class="znak" style="--k:var(--g-yellow)" aria-hidden="true"></span><span>Podhale</span></a></li><li><a href="https://disaster26.github.io/przewodnikbeskidzki-podglad/spisz/"><span class="znak" style="--k:var(--g-black)" aria-hidden="true"></span><span>Spisz</span></a></li><li><a href="https://disaster26.github.io/przewodnikbeskidzki-podglad/orawa/"><span class="znak" style="--k:var(--g-black)" aria-hidden="true"></span><span>Orawa</span></a></li><li><a href="https://disaster26.github.io/przewodnikbeskidzki-podglad/slowacja/"><span class="znak" style="--k:var(--red)" aria-hidden="true"></span><span>Słowacja</span></a></li><li class="infm-wsz"><a href="https://disaster26.github.io/przewodnikbeskidzki-podglad/informator/#regiony">Wszystkie regiony</a></li></ul></li><li class="infm-kat" data-kat="miejscowosci"><button type="button" class="infm-b" aria-expanded="false" aria-controls="infm-top-miejscowosci"><span>Miejscowości</span><small class="infm-ile">3</small><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 9l7 7 7-7"/></svg></button><ul class="infm-l" id="infm-top-miejscowosci" hidden><li><a href="https://disaster26.github.io/przewodnikbeskidzki-podglad/pieniny/szczawnica/"><span class="znak" style="--k:var(--red)" aria-hidden="true"></span><span>Szczawnica</span></a></li><li><a href="https://disaster26.github.io/przewodnikbeskidzki-podglad/pieniny/kroscienko-nad-dunajcem/"><span class="znak" style="--k:var(--red)" aria-hidden="true"></span><span>Krościenko nad Dunajcem</span></a></li><li><a href="https://disaster26.github.io/przewodnikbeskidzki-podglad/spisz/niedzica/"><span class="znak" style="--k:var(--red)" aria-hidden="true"></span><span>Niedzica</span></a></li><li class="infm-wsz"><a href="https://disaster26.github.io/przewodnikbeskidzki-podglad/informator/#miejscowosci">Wszystkie miejscowości</a></li></ul></li><li class="infm-kat" data-kat="dzialy"><button type="button" class="infm-b" aria-expanded="false" aria-controls="infm-top-dzialy"><span>Działy</span><small class="infm-ile">4</small><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 9l7 7 7-7"/></svg></button><ul class="infm-l" id="infm-top-dzialy" hidden><li><a href="https://disaster26.github.io/przewodnikbeskidzki-podglad/informator/atrakcje/"><span class="znak" style="--k:var(--red)" aria-hidden="true"></span><span>Atrakcje</span></a></li><li><a href="https://disaster26.github.io/przewodnikbeskidzki-podglad/informator/historia-i-kultura/"><span class="znak" style="--k:var(--red)" aria-hidden="true"></span><span>Historia i kultura</span></a></li><li><a href="https://disaster26.github.io/przewodnikbeskidzki-podglad/informator/porady/"><span class="znak" style="--k:var(--red)" aria-hidden="true"></span><span>Porady turystyczne</span></a></li><li><a href="https://disaster26.github.io/przewodnikbeskidzki-podglad/informator/pieniny-bez-bladzenia/"><span class="znak" style="--k:var(--g-green)" aria-hidden="true"></span><span>Pieniny bez błądzenia</span></a></li><li class="infm-wsz"><a href="https://disaster26.github.io/przewodnikbeskidzki-podglad/informator/#dzialy">Wszystkie działy</a></li></ul></li></ul><a class="tinf-all" href="https://disaster26.github.io/przewodnikbeskidzki-podglad/informator/">Cały Informator turystyczny</a></div></div>
-    </div>
-    <a class="top-tel" href="tel:+48692133969" aria-label="Zadzwoń: 692 133 969"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1A17 17 0 0 1 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1z"/></svg></a>
-    <button class="burger" id="burger" type="button" aria-label="Otwórz menu" aria-expanded="false" aria-controls="nav"><span></span><span></span><span></span></button>
-  </div>
-</header>
-<div class="okr-pas"><div class="wrap"><nav class="okr" aria-label="Jesteś tutaj"><a href="https://disaster26.github.io/przewodnikbeskidzki-podglad/">Strona główna</a><i aria-hidden="true"></i><a href="https://disaster26.github.io/przewodnikbeskidzki-podglad/spacery/">Wycieczki z przewodnikiem</a><i aria-hidden="true"></i><span aria-current="page">Muzeum w Czerwonym Klasztorze - historia zakonników i tajemnice klasztornych murów</span></nav></div></div><main id="tresc">
+</head>
+<body class="wp-singular pb_spacer-template-default single single-pb_spacer postid-1967 wp-embed-responsive wp-theme-przewodnik typ-pb_spacer">
+<a class="skip" href="#tresc">Przejdź do treści</a>
+<div class="pasek">
+  <div class="pasek-in">
+    <span class="pasek-upr">Licencjonowany przewodnik beskidzki, przewodnik terenowy i pilot wycieczek</span>
+    <div class="pasek-kon"><a class="pk-tel" href="tel:+48692133969">692 133 969</a><a href="mailto:jagjur@poczta.onet.pl">jagjur@poczta.onet.pl</a><div class="soc soc-p"><a class="m-fb" href="https://www.facebook.com/share/1DDXdH6URu/?mibextid=wwXIfr" rel="noopener" target="_blank" aria-label="Facebook: Usługi przewodnickie i pilotaż wycieczek - Jagoda Jurkowska"><svg class="lg-fb" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M9.101 23.691v-7.98H6.627v-3.667h2.474v-1.58c0-4.085 1.848-5.978 5.858-5.978.401 0 .955.042 1.468.103a8.68 8.68 0 0 1 1.141.195v3.325a8.623 8.623 0 0 0-.653-.036 26.805 26.805 0 0 0-.733-.009c-.707 0-1.259.096-1.675.309a1.686 1.686 0 0 0-.679.622c-.258.42-.374.995-.374 1.752v1.297h3.919l-.386 2.103-.287 1.564h-3.246v8.245C19.396 23.238 24 18.179 24 12.044c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.628 3.874 10.35 9.101 11.647Z"/></svg></a><a class="m-ig" href="https://www.instagram.com/przewodnik_pieninski/" rel="noopener" target="_blank" aria-label="Instagram: przewodnik_pieninski"><svg class="lg-ig" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M7.03.084c-1.277.06-2.149.264-2.911.563-.789.308-1.458.72-2.123 1.388-.665.668-1.075 1.337-1.38 2.127-.296.764-.496 1.637-.552 2.914-.057 1.278-.069 1.688-.063 4.947.006 3.259.021 3.667.083 4.947.061 1.277.264 2.148.564 2.911.308.789.72 1.457 1.388 2.123.668.665 1.336 1.074 2.128 1.38.763.295 1.636.496 2.913.552 1.278.056 1.689.069 4.946.063 3.258-.006 3.668-.021 4.948-.081 1.28-.061 2.147-.265 2.91-.563.789-.309 1.458-.72 2.123-1.388.665-.668 1.074-1.338 1.379-2.128.296-.763.497-1.636.552-2.912.056-1.281.069-1.69.063-4.948-.006-3.258-.021-3.667-.082-4.947-.061-1.28-.264-2.148-.563-2.911-.309-.789-.72-1.457-1.388-2.123C21.298 1.33 20.628.921 19.838.617 19.074.321 18.202.12 16.924.065 15.647.009 15.236-.005 11.977.001 8.718.008 8.31.022 7.03.084m.14 21.693c-1.17-.051-1.805-.245-2.229-.408-.56-.216-.96-.477-1.382-.895-.422-.418-.681-.819-.9-1.378-.164-.423-.362-1.058-.417-2.228-.06-1.265-.072-1.644-.079-4.848-.007-3.204.005-3.583.061-4.848.05-1.169.246-1.805.408-2.228.216-.561.476-.96.895-1.382.419-.422.818-.681 1.378-.9.423-.165 1.058-.361 2.227-.417 1.266-.06 1.645-.072 4.848-.079 3.203-.007 3.584.005 4.85.061 1.169.051 1.805.245 2.228.408.561.216.96.475 1.382.895.422.419.682.818.9 1.379.166.422.362 1.056.417 2.226.06 1.266.074 1.645.08 4.848.006 3.203-.006 3.583-.061 4.848-.051 1.17-.245 1.806-.408 2.23-.216.56-.476.96-.895 1.381-.419.422-.818.681-1.378.9-.422.165-1.058.362-2.226.417-1.266.06-1.645.072-4.85.079-3.204.007-3.582-.006-4.848-.061M16.953 5.586a1.44 1.44 0 1 0 1.437-1.442 1.44 1.44 0 0 0-1.437 1.442M5.839 12.012a6.161 6.161 0 1 0 12.323-.024 6.162 6.162 0 0 0-12.323.024M8 12.008a4 4 0 1 1 4.008 3.992A4 4 0 0 1 8 12.008"/></svg></a><a class="m-wa" href="https://wa.me/48692133969" rel="noopener" target="_blank" aria-label="Napisz na WhatsApp"><svg class="lg-wa" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg></a></div></div>
+  </div>
+</div>
+<header class="top" id="top">
+  <div class="top-in">
+    <a class="logo" href="https://disaster26.github.io/przewodnikbeskidzki-podglad/" aria-label="Jagoda Jurkowska, Przewodnik Beskidzki - strona główna">
+      <img class="logo-jj" src="https://disaster26.github.io/przewodnikbeskidzki-podglad/wp-content/themes/przewodnik/assets/img/logo-jagoda.webp" alt="Logo: mgr Jagoda Jurkowska, Przewodnik Beskidzki" width="238" height="210">
+      <span class="logo-tx"><b>Jagoda Jurkowska</b><span>Przewodnik Beskidzki, Szczawnica</span></span>
+    </a>
+    <nav class="nav" id="nav" aria-label="Menu główne">
+      <ul class="nav-l">
+        <li><a href="https://disaster26.github.io/przewodnikbeskidzki-podglad/">Strona główna</a></li>        <li class="gr"><button class="gr-b" type="button" aria-expanded="false" aria-controls="m-oferta">Oferta<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 9l7 7 7-7"/></svg></button>
+          <div class="drop" id="m-oferta"><div class="drop-in"><a href="https://disaster26.github.io/przewodnikbeskidzki-podglad/oferta/szkoly/"><span class="znak" style="--k:var(--g-green)" aria-hidden="true"></span><b>Szkoły</b><small>wycieczki klasowe, zielone szkoły</small></a><a href="https://disaster26.github.io/przewodnikbeskidzki-podglad/oferta/grupy/"><span class="znak" style="--k:var(--g-blue)" aria-hidden="true"></span><b>KGW, seniorzy i grupy zorganizowane</b><small>spokojne tempo, regionalne smaki</small></a><a href="https://disaster26.github.io/przewodnikbeskidzki-podglad/oferta/biura/"><span class="znak" style="--k:var(--g-black)" aria-hidden="true"></span><b>Biura podróży</b><small>prowadzenie i pilotaż grup</small></a><a href="https://disaster26.github.io/przewodnikbeskidzki-podglad/oferta/rodziny/"><span class="znak" style="--k:var(--g-yellow)" aria-hidden="true"></span><b>Rodziny i turyści indywidualni</b><small>trasa pod Wasze tempo</small></a><a href="https://disaster26.github.io/przewodnikbeskidzki-podglad/oferta/" class="drop-all">Cała oferta</a></div></div></li>
+        <li><a href="https://disaster26.github.io/przewodnikbeskidzki-podglad/trasy/">Trasy i wycieczki</a></li><li><a href="https://disaster26.github.io/przewodnikbeskidzki-podglad/spacery/" class="akt">Dołącz do grupy</a></li>        <li class="gr gr-inf"><button class="gr-b" type="button" aria-expanded="false" aria-controls="m-inf">Informator turystyczny<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 9l7 7 7-7"/></svg></button>
+          <div class="drop" id="m-inf"><div class="drop-in"><ul class="infm infm-nav" data-infm="nav"><li class="infm-kat" data-kat="regiony"><button type="button" class="infm-b" aria-expanded="false" aria-controls="infm-nav-regiony"><span>Regiony</span><small class="infm-ile">7</small><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 9l7 7 7-7"/></svg></button><ul class="infm-l" id="infm-nav-regiony" hidden><li><a href="https://disaster26.github.io/przewodnikbeskidzki-podglad/pieniny/"><span class="znak" style="--k:var(--red)" aria-hidden="true"></span><span>Pieniny</span></a></li><li><a href="https://disaster26.github.io/przewodnikbeskidzki-podglad/gorce/"><span class="znak" style="--k:var(--g-green)" aria-hidden="true"></span><span>Gorce</span></a></li><li><a href="https://disaster26.github.io/przewodnikbeskidzki-podglad/beskid-sadecki/"><span class="znak" style="--k:var(--g-blue)" aria-hidden="true"></span><span>Beskid Sądecki</span></a></li><li><a href="https://disaster26.github.io/przewodnikbeskidzki-podglad/podhale/"><span class="znak" style="--k:var(--g-yellow)" aria-hidden="true"></span><span>Podhale</span></a></li><li><a href="https://disaster26.github.io/przewodnikbeskidzki-podglad/spisz/"><span class="znak" style="--k:var(--g-black)" aria-hidden="true"></span><span>Spisz</span></a></li><li><a href="https://disaster26.github.io/przewodnikbeskidzki-podglad/orawa/"><span class="znak" style="--k:var(--g-black)" aria-hidden="true"></span><span>Orawa</span></a></li><li><a href="https://disaster26.github.io/przewodnikbeskidzki-podglad/slowacja/"><span class="znak" style="--k:var(--red)" aria-hidden="true"></span><span>Słowacja</span></a></li><li class="infm-wsz"><a href="https://disaster26.github.io/przewodnikbeskidzki-podglad/informator/#regiony">Wszystkie regiony</a></li></ul></li><li class="infm-kat" data-kat="miejscowosci"><button type="button" class="infm-b" aria-expanded="false" aria-controls="infm-nav-miejscowosci"><span>Miejscowości</span><small class="infm-ile">3</small><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 9l7 7 7-7"/></svg></button><ul class="infm-l" id="infm-nav-miejscowosci" hidden><li><a href="https://disaster26.github.io/przewodnikbeskidzki-podglad/pieniny/szczawnica/"><span class="znak" style="--k:var(--red)" aria-hidden="true"></span><span>Szczawnica</span></a></li><li><a href="https://disaster26.github.io/przewodnikbeskidzki-podglad/pieniny/kroscienko-nad-dunajcem/"><span class="znak" style="--k:var(--red)" aria-hidden="true"></span><span>Krościenko nad Dunajcem</span></a></li><li><a href="https://disaster26.github.io/przewodnikbeskidzki-podglad/spisz/niedzica/"><span class="znak" style="--k:var(--red)" aria-hidden="true"></span><span>Niedzica</span></a></li><li class="infm-wsz"><a href="https://disaster26.github.io/przewodnikbeskidzki-podglad/informator/#miejscowosci">Wszystkie miejscowości</a></li></ul></li><li class="infm-kat" data-kat="dzialy"><button type="button" class="infm-b" aria-expanded="false" aria-controls="infm-nav-dzialy"><span>Działy</span><small class="infm-ile">4</small><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 9l7 7 7-7"/></svg></button><ul class="infm-l" id="infm-nav-dzialy" hidden><li><a href="https://disaster26.github.io/przewodnikbeskidzki-podglad/informator/atrakcje/"><span class="znak" style="--k:var(--red)" aria-hidden="true"></span><span>Atrakcje</span></a></li><li><a href="https://disaster26.github.io/przewodnikbeskidzki-podglad/informator/historia-i-kultura/"><span class="znak" style="--k:var(--red)" aria-hidden="true"></span><span>Historia i kultura</span></a></li><li><a href="https://disaster26.github.io/przewodnikbeskidzki-podglad/informator/porady/"><span class="znak" style="--k:var(--red)" aria-hidden="true"></span><span>Porady turystyczne</span></a></li><li><a href="https://disaster26.github.io/przewodnikbeskidzki-podglad/informator/pieniny-bez-bladzenia/"><span class="znak" style="--k:var(--g-green)" aria-hidden="true"></span><span>Pieniny bez błądzenia</span></a></li><li class="infm-wsz"><a href="https://disaster26.github.io/przewodnikbeskidzki-podglad/informator/#dzialy">Wszystkie działy</a></li></ul></li></ul><a href="https://disaster26.github.io/przewodnikbeskidzki-podglad/informator/" class="drop-all">Cały Informator turystyczny</a></div></div></li>
+        <li><a href="https://disaster26.github.io/przewodnikbeskidzki-podglad/relacje/">Relacje i aktualności</a></li><li><a href="https://disaster26.github.io/przewodnikbeskidzki-podglad/galeria/">Galeria</a></li><li><a href="https://disaster26.github.io/przewodnikbeskidzki-podglad/o-mnie/">O mnie</a></li><li><a href="https://disaster26.github.io/przewodnikbeskidzki-podglad/cennik/">Cennik</a></li><li><a href="https://disaster26.github.io/przewodnikbeskidzki-podglad/kontakt/">Kontakt</a></li>      </ul>
+      <button class="nav-zamk" type="button" data-nav-zamknij>Zamknij menu<span aria-hidden="true">&times;</span></button>
+      <a class="nav-tel" href="tel:+48692133969"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1A17 17 0 0 1 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1z"/></svg>692 133 969</a>
+    </nav>
+    <a class="top-tel" href="tel:+48692133969" aria-label="Zadzwoń: 692 133 969"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1A17 17 0 0 1 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1z"/></svg></a>
+    <button class="burger" id="burger" type="button" aria-label="Otwórz menu" aria-expanded="false" aria-controls="nav"><span></span><span></span><span></span></button>
+  </div>
+</header>
+<div class="okr-pas"><div class="wrap"><nav class="okr" aria-label="Jesteś tutaj"><a href="https://disaster26.github.io/przewodnikbeskidzki-podglad/">Strona główna</a><i aria-hidden="true"></i><a href="https://disaster26.github.io/przewodnikbeskidzki-podglad/spacery/">Dołącz do grupy</a><i aria-hidden="true"></i><span aria-current="page">Muzeum w Czerwonym Klasztorze - historia zakonników i tajemnice klasztornych murów</span></nav></div></div><main id="tresc">
 <section class="ph"><div class="wrap ph-in"><div class="ph-tx"><h1>Muzeum w Czerwonym Klasztorze - historia zakonników i tajemnice klasztornych murów</h1><p class="lead">Odkryj niezwykłą historię Czerwonego Klasztoru - miejsca, w którym przez wieki żyli mnisi kartuscy i kameduli.</p><div class="ph-tagi"><a class="tabl" href="https://disaster26.github.io/przewodnikbeskidzki-podglad/pieniny/">Pieniny</a><span class="tabl">Ok. 1-1,5 godziny</span><span class="tabl">Łatwa</span></div><div class="ph-btn"><a class="btn" href="#terminy" data-cta>Zobacz terminy i zapisz się<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg></a><a class="btn-2" href="https://disaster26.github.io/przewodnikbeskidzki-podglad/kontakt/?trasa=Muzeum%20w%20Czerwonym%20Klasztorze%20-%20historia%20zakonnik%C3%B3w%20i%20tajemnice%20klasztornych%20mur%C3%B3w#zapytanie">Zamów przewodnika dla swojej grupy</a></div></div><figure class="ph-foto"><img width="537" height="800" src="https://disaster26.github.io/przewodnikbeskidzki-podglad/wp-content/uploads/2026/11/item27-Image1.webp" class="attachment-large size-large" alt="Muzeum w Czerwonym Klasztorze - historia zakonników i tajemnice klasztornych murów" loading="eager" fetchpriority="high" decoding="async" srcset="https://disaster26.github.io/przewodnikbeskidzki-podglad/wp-content/uploads/2026/11/item27-Image1.webp 537w, https://disaster26.github.io/przewodnikbeskidzki-podglad/wp-content/uploads/2026/11/item27-Image1-201x300.webp 201w, https://disaster26.github.io/przewodnikbeskidzki-podglad/wp-content/uploads/2026/11/item27-Image1-360x536.webp 360w" sizes="(max-width: 537px) 100vw, 537px" /><span class="znak" style="--k:var(--g-green)" aria-hidden="true"></span></figure></div></section><div class="wrap art karta-w">
   <article class="art-tresc"><div class="proza"><p class="karta-wstep">Podczas zwiedzania muzealnej ekspozycji poznasz codzienność zakonników, tajemnice klasztornego życia, historię dawnej apteki oraz niezwykłą postać brata Cypriana - zakonnika, lekarza, botanika i miłośnika gór.</p><p>Poznaj świat mnichów, dawnych aptekarzy i niezwykłego brata Cypriana!</p>
 <p>Zapraszam na spotkanie z historią w jednym z najciekawszych zabytków słowackich Pienin. Czerwony Klasztor (Červený Kláštor) to miejsce o wyjątkowej atmosferze, w którym przez stulecia rozwijało się życie zakonne, nauka, medycyna i kultura.</p>
@@ -2038,7 +2020,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
       <div class="karta-wazne"><h3>Ważne informacje dla turystów</h3><ul class="lz" style="--k:var(--g-green)"><li>Ważna informacja o cenie: Cena usługi przewodnickiej nie obejmuje biletu wstępu do muzeum. Bilety uczestnicy kupują we własnym zakresie. Aktualny cennik i godziny otwarcia dostępne są na oficjalnej stronie muzeum: <a href="https://muzeumcervenyklastor.sk/info/vstupne/?lang=pl" rel="nofollow">https://muzeumcervenyklastor.sk/info/vstupne/?lang=pl</a></li></ul></div>
   </div></section>
 <section class="sek sek-jasna" id="terminy"><div class="wrap">
-  <div class="glowa"><span class="znak" style="--k:var(--g-green)" aria-hidden="true"></span><h2>Terminy i zapisy</h2><p>Pasek pokazuje, ilu chętnych już jest, a kreska na pasku to minimum, od którego spacer się odbędzie. Terminy publikuję z miesięcznym wyprzedzeniem.</p></div>  <div class="term-brak" id="pw1967"><p><b>Termin po wcześniejszym uzgodnieniu.</b> Zostaw e-mail albo zadzwoń: 692 133 969, a ustalimy dogodny termin.</p><form class="powiadom" method="post" action="https://disaster26.github.io/przewodnikbeskidzki-podglad/wp-admin/admin-post.php"><input type="hidden" name="action" value="pbz_powiadom"><input type="hidden" name="sp" value="1967"><input type="hidden" name="zn" value="1794590432.7d6861cf72adf2e38180"><span class="pole-ukr" aria-hidden="true"><input name="strona_www" tabindex="-1" autocomplete="off"></span><label class="sr" for="pw1967-m">E-mail</label><input id="pw1967-m" name="email" type="email" autocomplete="email" placeholder="Twój e-mail" required><button class="btn-2" type="submit">Zapytaj o termin</button><label class="powiadom-zg"><input name="zgoda" type="checkbox" value="1" required><span>Zgadzam się na wiadomość w sprawie terminu. Szczegóły w <a href="https://disaster26.github.io/przewodnikbeskidzki-podglad/polityka-prywatnosci/">polityce prywatności</a>.</span></label></form></div>  <p class="sek-dalej"><a class="btn-2" href="https://disaster26.github.io/przewodnikbeskidzki-podglad/spacery/#kalendarz">Kalendarz wszystkich wycieczek</a></p>
+  <div class="glowa"><span class="znak" style="--k:var(--g-green)" aria-hidden="true"></span><h2>Terminy i zapisy</h2><p>Pasek pokazuje, ilu chętnych już jest, a kreska na pasku to minimum, od którego spacer się odbędzie. Terminy publikuję z miesięcznym wyprzedzeniem.</p></div>  <div class="term-brak" id="pw1967"><p><b>Termin po wcześniejszym uzgodnieniu.</b> Zostaw e-mail albo zadzwoń: 692 133 969, a ustalimy dogodny termin.</p><form class="powiadom" method="post" action="https://disaster26.github.io/przewodnikbeskidzki-podglad/wp-admin/admin-post.php"><input type="hidden" name="action" value="pbz_powiadom"><input type="hidden" name="sp" value="1967"><input type="hidden" name="zn" value="1794596797.2ee67029eb3f977b4815"><span class="pole-ukr" aria-hidden="true"><input name="strona_www" tabindex="-1" autocomplete="off"></span><label class="sr" for="pw1967-m">E-mail</label><input id="pw1967-m" name="email" type="email" autocomplete="email" placeholder="Twój e-mail" required><button class="btn-2" type="submit">Zapytaj o termin</button><label class="powiadom-zg"><input name="zgoda" type="checkbox" value="1" required><span>Zgadzam się na wiadomość w sprawie terminu. Szczegóły w <a href="https://disaster26.github.io/przewodnikbeskidzki-podglad/polityka-prywatnosci/">polityce prywatności</a>.</span></label></form></div>  <p class="sek-dalej"><a class="btn-2" href="https://disaster26.github.io/przewodnikbeskidzki-podglad/spacery/#kalendarz">Kalendarz wszystkich wycieczek</a></p>
 </div></section>
 <section class="sek sek-mala sek-jasna"><div class="wrap">
   <div class="cta-sz"><div class="cta-in"><span class="znak" style="--k:var(--red)" aria-hidden="true"></span><div><h2>Jedziecie grupą?</h2><p>Tę trasę poprowadzę też dla szkoły, koła gospodyń, seniorów czy biura podróży. Skontaktuj się i zaplanujmy wycieczkę.</p></div><div class="cta-btn"><a class="btn" href="https://disaster26.github.io/przewodnikbeskidzki-podglad/kontakt/?trasa=Muzeum%20w%20Czerwonym%20Klasztorze%20-%20historia%20zakonnik%C3%B3w%20i%20tajemnice%20klasztornych%20mur%C3%B3w#zapytanie">Zamów przewodnika dla swojej grupy<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg></a><a class="btn-2" href="https://disaster26.github.io/przewodnikbeskidzki-podglad/pieniny/#wycieczki">Poznaj więcej tras w Pieninach</a></div></div></div></div></section>
@@ -2076,7 +2058,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
   <a class="mob-tel" href="tel:+48692133969" tabindex="-1">Zadzwoń</a>
   <a class="mob-cta" href="#terminy" tabindex="-1">Terminy i zapis</a>
 </div>
-<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><defs><radialGradient id="pb-ig-gr" cx="0.3" cy="1.07" r="1.3"><stop offset="0" stop-color="#FFDD55"/><stop offset=".1" stop-color="#FFDD55"/><stop offset=".5" stop-color="#FF543E"/><stop offset="1" stop-color="#C837AB"/></radialGradient></defs></svg>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><defs><radialGradient id="pb-ig-gr" cx="0.3" cy="1.07" r="1.3"><stop offset="0" stop-color="#FFDD55"/><stop offset=".1" stop-color="#FFDD55"/><stop offset=".5" stop-color="#FF543E"/><stop offset="1" stop-color="#C837AB"/></radialGradient></defs></svg>
 <script type="speculationrules">
 {"prefetch":[{"source":"document","where":{"and":[{"href_matches":"/*"},{"not":{"href_matches":["/wp-*.php","/wp-admin/*","/wp-content/uploads/*","/wp-content/*","/wp-content/plugins/*","/wp-content/themes/przewodnik/*","/*\\?(.+)"]}},{"not":{"selector_matches":"a[rel~=\"nofollow\"]"}},{"not":{"selector_matches":".no-prefetch, .no-prefetch a"}}]},"eagerness":"conservative"}]}
 </script>

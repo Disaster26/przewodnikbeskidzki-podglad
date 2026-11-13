@@ -29,8 +29,7 @@ ul{margin:0;padding:0;list-style:none}
 .znak{display:inline-block;flex:none;width:30px;height:30px;border-radius:2px;
   background:linear-gradient(#fff 0 33.4%,var(--k,var(--red)) 33.4% 66.6%,#fff 66.6%);
   box-shadow:0 0 0 1px rgba(23,32,27,.18),0 1px 2px rgba(23,32,27,.14)}
-.sep,.tab .sep{font-size:0 !important;display:inline-block;width:4px;height:4px;border-radius:50%;background:currentColor;opacity:.55;margin:0 9px;vertical-align:middle;position:relative;top:-2px}
-.tab .sep{margin:0 7px}
+.sep{font-size:0 !important;display:inline-block;width:4px;height:4px;border-radius:50%;background:currentColor;opacity:.55;margin:0 9px;vertical-align:middle;position:relative;top:-2px}
 /* tabliczka drogowskazu w hero */
 .hero-tab{display:inline-flex;align-items:center;gap:12px;background:var(--yellow);color:var(--ink);margin:0 0 26px;padding:9px 46px 7px 10px;
   clip-path:polygon(0 0,calc(100% - 26px) 0,100% 50%,calc(100% - 26px) 100%,0 100%);box-shadow:0 2px 0 rgba(0,0,0,.18)}
@@ -98,24 +97,6 @@ h3{font-size:22px;font-weight:800}
 /* gdzie - drogowskaz */
 .sek-ciemna{background:var(--spruce);color:#fff}
 .sek-ciemna .glowa p,.sek-ciemna p{color:#D5E2D9}
-.gdzie{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:64px;align-items:center}
-.gdzie-tx p{font-size:18.5px}
-.gdzie .glowa{margin-bottom:28px}
-.slup{position:relative;padding:0 0 0 0;--post:28px}
-.slup::before{content:"";position:absolute;left:50%;top:0;bottom:-104px;width:var(--post);transform:translateX(-50%);
-  background:linear-gradient(90deg,#9aa39d,#d9dfdb 40%,#aab3ad 70%,#7d8781)}
-.slup-glowka{position:relative;z-index:2;margin:0 auto 18px;width:max-content;background:var(--yellow);color:var(--ink);font-weight:800;font-size:18px;padding:12px 22px 9px;border-radius:3px;
-  box-shadow:0 2px 0 rgba(0,0,0,.25)}
-.slup-glowka span{display:block;text-align:center}
-.tabliczki{position:relative;z-index:2;display:flex;flex-direction:column;gap:12px}
-.tab{position:relative;display:grid;grid-template-columns:auto minmax(0,1fr);column-gap:14px;align-items:center;background:var(--yellow);color:var(--ink);
-  width:calc(50% + 150px);margin-left:calc(50% - 150px);padding:13px 46px 11px 18px;clip-path:polygon(0 0,calc(100% - 30px) 0,100% 50%,calc(100% - 30px) 100%,0 100%);
-  box-shadow:0 2px 0 rgba(0,0,0,.2)}
-.tab-l{margin-left:0;margin-right:calc(50% - 150px);padding:13px 18px 11px 46px;clip-path:polygon(30px 0,100% 0,100% 100%,30px 100%,0 50%)}
-.tab .znak{grid-row:span 2;width:28px;height:28px;box-shadow:0 0 0 1px rgba(23,32,27,.3)}
-.tab b{font-size:20px;font-weight:800;line-height:1.2}
-.tab span:not(.znak){font-size:14.5px;line-height:1.35;color:#2e3530}
-
 /* trasy */
 .trasy{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:22px}
 .trasa,.relacja{background:#fff;border-radius:var(--r);overflow:hidden;border:1px solid var(--line);min-width:0;display:flex;flex-direction:column}
@@ -226,13 +207,9 @@ h3{font-size:22px;font-weight:800}
 
 @media (max-width:1180px){
   .grupy,.trasy{grid-template-columns:repeat(2,minmax(0,1fr))}
-  .gdzie{gap:40px}
-  .tab{width:calc(50% + 120px);margin-left:calc(50% - 120px)}
-  .tab-l{margin-left:0;margin-right:calc(50% - 120px)}
 }
 @media (max-width:1020px){
-  .gdzie,.omnie,.cennik,.kontakt{grid-template-columns:1fr}
-  .slup::before{bottom:-104px}
+  .omnie,.cennik,.kontakt{grid-template-columns:1fr}
   .omnie-foto{max-width:720px}
 }
 
@@ -274,12 +251,6 @@ h3{font-size:22px;font-weight:800}
   .grupa-tx{padding:18px 18px 20px}
   .trasa .sw{aspect-ratio:4/3}
 
-  .gdzie{gap:26px}
-  .slup::before{left:24px;transform:none;bottom:-68px}
-  .slup-glowka{margin:0 0 14px 0}
-  .tab,.tab-l{width:auto;margin:0 0 0 0;padding:12px 40px 10px 14px;clip-path:polygon(0 0,calc(100% - 24px) 0,100% 50%,calc(100% - 24px) 100%,0 100%)}
-  .tab b{font-size:18.5px}
-  .tab span:not(.znak){font-size:14px}
 
   .omnie{gap:26px}
   #o-mnie .glowa > .znak::before{display:none}
@@ -723,8 +694,6 @@ a.reg-k:hover b{color:var(--red-d)}
   .stopka-kol.s5{grid-template-columns:1fr 1fr;gap:18px 14px}
   .stopka-kol.s5 > div:first-child{grid-column:1/-1}
 }
-.tab-a{color:inherit;text-decoration:none}
-.tab-a:hover{text-decoration:underline;text-underline-offset:3px}
 .sek-ciemna .lnk{color:var(--yellow)}
 .droga,.rel-l{list-style:none;margin:0}
 .droga{padding:0}

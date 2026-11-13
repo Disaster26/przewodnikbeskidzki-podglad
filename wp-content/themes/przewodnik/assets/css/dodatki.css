@@ -784,3 +784,75 @@ html:has(.rg-nav){scroll-padding-top:calc(var(--head) + 52px)}
 .pomagam-gl .sek-dalej{margin-top:14px}
 @media (max-width:1020px){.grupy-r{grid-template-columns:repeat(2,minmax(0,1fr))}.inf-art-3{grid-template-columns:1fr 1fr}}
 @media (max-width:760px){.form-cz{grid-template-columns:1fr;padding:12px 12px 14px}.grupy-r{grid-template-columns:1fr}.inf-art-3{grid-template-columns:1fr}.najb-brak-b .btn{width:100%;justify-content:center}}
+
+/* ===== 13.11: kalendarz miesięczny terminów (strona główna, /spacery/#kalendarz) ===== */
+.najb-w .test-not{margin:0 0 16px}
+.kalm{display:grid;grid-template-columns:minmax(300px,420px) minmax(0,1fr);gap:28px;align-items:start}
+.kalm-kal{background:#fff;border:1px solid var(--line);border-top:5px solid var(--g-green);border-radius:var(--r);padding:14px 14px 12px}
+.kalm-nag{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:8px}
+.kalm-mies{font-size:20px;font-weight:800;text-align:center;flex:1;margin:0}
+.kalm-str{flex:none;width:44px;height:44px;display:grid;place-items:center;background:var(--bg-2);border:1.5px solid var(--line);border-radius:var(--r);cursor:pointer;color:var(--ink)}
+.kalm-str svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round}
+.kalm-str:hover:not(:disabled){border-color:var(--ink)}
+.kalm-str:disabled{opacity:.35;cursor:default}
+.kalm-str:focus-visible,.kalm-d:focus-visible{outline:3px solid var(--ink);outline-offset:1px}
+.kalm-tyg,.kalm-dni{display:grid;grid-template-columns:repeat(7,minmax(0,1fr))}
+.kalm-tyg span{text-align:center;font-size:13px;font-weight:700;color:var(--mut);padding:4px 0 6px}
+.kalm-d{position:relative;min-height:48px;display:grid;place-items:center;font:600 16px/1 var(--f);color:var(--ink);background:none;border:0;padding:0}
+.kalm-d::before{content:"";position:absolute;inset:3px;border-radius:var(--r);z-index:0}
+.kalm-d > *{position:relative;z-index:1}
+.kalm-d.min{color:#A5AFA8}
+.kalm-d.dzis::before{box-shadow:inset 0 0 0 1.5px var(--ink)}
+.kalm-d.ma{cursor:pointer;font-weight:800;color:#fff}
+.kalm-d.ma.w::before{background:var(--g-green)}
+.kalm-d.ma.p::before{background:#7d8781}
+.kalm-d.ma:hover::before{filter:brightness(.9)}
+.kalm-d.ma[aria-pressed="true"]::before{box-shadow:0 0 0 3px #fff,0 0 0 5px var(--ink)}
+.kalm-d .kalm-n{position:absolute;right:5px;top:5px;font-size:11px;font-weight:800;line-height:16px;min-width:16px;height:16px;border-radius:8px;background:#fff;color:var(--ink);text-align:center}
+.kalm-leg{display:flex;flex-wrap:wrap;gap:6px 18px;margin:10px 2px 0;font-size:14px;color:var(--ink-2)}
+.kalm-leg li{display:flex;align-items:center;gap:8px}
+.kalm-leg i{width:16px;height:16px;border-radius:3px;background:var(--g-green)}
+.kalm-leg .kalm-i-p{background:#7d8781}
+.kalm-wyn{min-width:0}
+.kalm-pod{font-size:16px;color:var(--ink-2);background:var(--bg-2);border-radius:var(--r);padding:16px 18px;margin:0}
+.sek-jasna .kalm-pod{background:#fff}
+.kalm-pod b{color:var(--ink)}
+.kalm-pod .btn-2{margin-top:12px}
+.kalm-dz{font-size:19px;margin:0 0 12px;padding-bottom:8px;border-bottom:2px solid var(--ink)}
+.kalm-l{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:16px}
+.kalm-k{display:flex;flex-direction:column;background:#fff;border:1px solid var(--line);border-left:4px solid var(--g-green);border-radius:var(--r);overflow:hidden;min-width:0}
+.kalm-k-pel{border-left-color:#7d8781}
+.kalm-foto{width:100%;aspect-ratio:16/9;object-fit:cover}
+.kalm-k-tx{display:flex;flex-direction:column;flex:1;padding:14px 16px 16px}
+.kalm-k-g{display:flex;flex-wrap:wrap;align-items:center;gap:6px 10px;margin:0 0 6px}
+.kalm-godz{font-size:15px;font-weight:800}
+.kalm-k h4{font-size:18px;line-height:1.25;margin:0 0 6px}
+.kalm-k .kal-m{display:flex;flex-direction:column;gap:2px;margin:0}
+.kalm-wolne{font-size:14.5px;color:var(--ink-2);margin:0 0 12px}
+.kalm-wolne b{color:var(--ink)}
+.kalm-k-dol{display:flex;flex-wrap:wrap;align-items:center;gap:10px 18px;margin-top:auto}
+.kalm-k-dol .term-zap{min-height:44px;display:inline-flex;align-items:center;padding:12px 18px 10px;text-decoration:none}
+.kalm-k-dol .lnk{font-size:15.5px}
+@media (max-width:900px){.kalm{grid-template-columns:1fr;gap:18px}.kalm-kal{max-width:520px}}
+@media (max-width:420px){.kalm-kal{padding:12px 0 10px;border-left:0;border-right:0;border-radius:0}.kalm-nag{padding:0 6px}.kalm-leg{margin:10px 10px 0}.kalm-d{min-height:46px}.kalm-l{grid-template-columns:1fr}}
+
+/* ===== 13.11 (mail 13:06): drogowskaz regionów jako nawigacja do stron regionów w Informatorze ===== */
+.tab{cursor:pointer;transition:filter .2s}
+.tab-a::after{content:"";position:absolute;inset:0;z-index:1}
+.tab-a:focus-visible{outline:none}
+.tab:focus-within{outline:3px solid var(--ink);outline-offset:-3px}
+.tab .tab-opis{grid-column:2;display:grid;grid-template-rows:0fr;transition:grid-template-rows .25s ease}
+.tab .tab-opis > span{overflow:hidden;font-size:14.5px;line-height:1.4;color:#2e3530}
+.tab .tab-opis em{font-style:normal;font-weight:800;color:var(--red-d);white-space:nowrap}
+.tab .tab-opis em::after{content:" →"}
+@media (hover:hover){
+  .tab:hover,.tab:focus-within{filter:brightness(1.04)}
+  .tab:hover .tab-opis,.tab:focus-within .tab-opis{grid-template-rows:1fr}
+  .tab:hover .tab-opis > span,.tab:focus-within .tab-opis > span{padding-top:6px}
+}
+@media (hover:none),(max-width:760px){
+  .tab .tab-opis{display:block}
+  .tab .tab-opis > span{display:block;overflow:visible}
+  .tab .tab-opis > span{padding-top:6px;font-size:14px}
+}
+@media (prefers-reduced-motion:reduce){.tab .tab-opis{transition:none}}

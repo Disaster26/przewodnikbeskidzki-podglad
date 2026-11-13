@@ -259,3 +259,68 @@
   wiecej.addEventListener('click',function(){ limit+=24; filtruj(); });
   filtruj();
 })();
+
+/* ===== 13.11: kalendarz miesięczny terminów. Dane = karty terminów w <template> (z panelu), nic nie wpisuje się ręcznie ===== */
+(function(){
+  var d=document;
+  var MIES=['Styczeń','Luty','Marzec','Kwiecień','Maj','Czerwiec','Lipiec','Sierpień','Wrzesień','Październik','Listopad','Grudzień'];
+  var MIES_W=['styczniu','lutym','marcu','kwietniu','maju','czerwcu','lipcu','sierpniu','wrześniu','październiku','listopadzie','grudniu'];
+  var MIES_D=['stycznia','lutego','marca','kwietnia','maja','czerwca','lipca','sierpnia','września','października','listopada','grudnia'];
+  var DNI=['Niedziela','Poniedziałek','Wtorek','Środa','Czwartek','Piątek','Sobota'];
+  function terminy(n){ var a=n%10,b=n%100; return n===1?'termin':(a>=2&&a<=4&&!(b>=12&&b<=14))?'terminy':'terminów'; }
+  function dwa(n){ return (n<10?'0':'')+n; }
+  [].forEach.call(d.querySelectorAll('[data-kalm]'),function(k){
+    var tpl=k.querySelector('.kalm-tpl'); if(!tpl) return;
+    var teraz=new Date(), dni={}, klucze=[];
+    [].forEach.call(tpl.content.querySelectorAll('.kalm-k'),function(c){
+      var s=c.getAttribute('data-start').split(/[-T:]/);
+      if(new Date(+s[0],s[1]-1,+s[2],+s[3],+s[4])<=teraz) return; /* termin minął: nie pokazujemy */
+      var dz=c.getAttribute('data-dzien');
+      if(!dni[dz]){ dni[dz]=[]; klucze.push(dz); }
+      dni[dz].push(c);
+    });
+    klucze.sort();
+    var siatka=k.querySelector('.kalm-dni'), tyt=k.querySelector('.kalm-mies'), wyn=k.querySelector('.kalm-wyn'),
+        bp=k.querySelector('[data-kalm-p]'), bn=k.querySelector('[data-kalm-n]');
+    var dzis=teraz.getFullYear()+'-'+dwa(teraz.getMonth()+1)+'-'+dwa(teraz.getDate());
+    var min=teraz.getFullYear()*12+teraz.getMonth(), max=min, akt=min, wybr='';
+    if(klucze.length){ var f=klucze[0].split('-'), l=klucze[klucze.length-1].split('-'); akt=f[0]*12+(f[1]-1); max=Math.max(min,l[0]*12+(l[1]-1)); }
+    function ym(m){ return Math.floor(m/12)+'-'+dwa(m%12+1); }
+    function wMies(m){ var p=ym(m); return klucze.filter(function(x){ return x.indexOf(p)===0; }); }
+    function podpowiedz(){
+      var w=wMies(akt), n=0; w.forEach(function(x){ n+=dni[x].length; });
+      if(n){ wyn.innerHTML='<p class="kalm-pod">W '+MIES_W[akt%12]+' '+Math.floor(akt/12)+': <b>'+n+' '+terminy(n)+'</b>. Kliknij wyróżniony dzień w kalendarzu, aby zobaczyć szczegóły i zapisać się.</p>'; return; }
+      var dalej=klucze.filter(function(x){ return x>ym(akt)+'-31'; })[0];
+      wyn.innerHTML='<p class="kalm-pod">W tym miesiącu nie ma jeszcze zaplanowanych terminów.'+(dalej?'<br><button type="button" class="btn-2" data-kalm-idz="'+dalej+'">Najbliższy termin: '+(+dalej.slice(8))+' '+MIES_D[dalej.slice(5,7)-1]+'</button>':'')+'</p>';
+    }
+    function pokaz(dz){
+      wybr=dz;
+      var p=dz.split('-'), dt=new Date(+p[0],p[1]-1,+p[2]), h='<h4 class="kalm-dz">'+DNI[dt.getDay()]+', '+(+p[2])+' '+MIES_D[p[1]-1]+' '+p[0]+'</h4><div class="kalm-l"></div>';
+      wyn.innerHTML=h;
+      var l=wyn.querySelector('.kalm-l');
+      dni[dz].forEach(function(c){ l.appendChild(c.cloneNode(true)); });
+      [].forEach.call(siatka.querySelectorAll('.kalm-d.ma'),function(b){ b.setAttribute('aria-pressed',b.getAttribute('data-d')===dz?'true':'false'); });
+      if(window.matchMedia('(max-width:900px)').matches){ var r=wyn.getBoundingClientRect(); if(r.top>window.innerHeight-120) wyn.scrollIntoView({behavior:'smooth',block:'start'}); }
+    }
+    function rysuj(){
+      var r=Math.floor(akt/12), m=akt%12, start=(new Date(r,m,1).getDay()+6)%7, ile=new Date(r,m+1,0).getDate(), h='';
+      tyt.textContent=MIES[m]+' '+r;
+      for(var i=0;i<start;i++) h+='<span class="kalm-d" aria-hidden="true"></span>';
+      for(var j=1;j<=ile;j++){
+        var dz=r+'-'+dwa(m+1)+'-'+dwa(j), cl='kalm-d'+(dz===dzis?' dzis':'')+(dz<dzis?' min':'');
+        if(dni[dz]){
+          var n=dni[dz].length, wolne=dni[dz].some(function(c){ return c.getAttribute('data-wolne')==='1'; });
+          h+='<button type="button" class="'+cl+' ma '+(wolne?'w':'p')+'" data-d="'+dz+'" aria-pressed="false" aria-label="'+j+' '+MIES_D[m]+': '+n+' '+terminy(n)+(wolne?', wolne miejsca':', komplet')+'"><span>'+j+'</span>'+(n>1?'<span class="kalm-n" aria-hidden="true">'+n+'</span>':'')+'</button>';
+        } else h+='<span class="'+cl+'"><span>'+j+'</span></span>';
+      }
+      siatka.innerHTML=h;
+      bp.disabled=akt<=min; bn.disabled=akt>=max;
+      if(wybr && wybr.indexOf(ym(akt))===0) pokaz(wybr); else podpowiedz();
+    }
+    siatka.addEventListener('click',function(e){ var b=e.target.closest('.kalm-d.ma'); if(b) pokaz(b.getAttribute('data-d')); });
+    wyn.addEventListener('click',function(e){ var b=e.target.closest('[data-kalm-idz]'); if(!b) return; var x=b.getAttribute('data-kalm-idz'); akt=x.slice(0,4)*12+(x.slice(5,7)-1); wybr=''; rysuj(); pokaz(x); });
+    bp.addEventListener('click',function(){ if(akt>min){ akt--; rysuj(); } });
+    bn.addEventListener('click',function(){ if(akt<max){ akt++; rysuj(); } });
+    rysuj();
+  });
+})();

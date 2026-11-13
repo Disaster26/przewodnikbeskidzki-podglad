@@ -88,6 +88,8 @@
   var lista=d.querySelector('[data-trasy]');
   if(lista){
     var karty=[].slice.call(lista.querySelectorAll('.trasa')), wynik=d.getElementById('filtr-wynik'), brak=d.getElementById('brak'), wyczysc=d.getElementById('filtr-wyczysc');
+    /* 13.11: opisy tras i programów filtrowane tymi samymi kryteriami (region, rodzaj, tematyka, grupa) i tekstem */
+    var opisy=[].slice.call(d.querySelectorAll('[data-opisy] .op-tr')), opWyn=d.getElementById('opisy-wynik'), opBrak=d.getElementById('opisy-brak'), OPK=['reg','rodz','tem','gr'];
     var typy=[], stan={}, szuk=d.getElementById('filtr-szukaj'), fraza='';
     [].forEach.call(d.querySelectorAll('.fb[data-t]'),function(b){ var t=b.getAttribute('data-t'); if(typy.indexOf(t)<0){ typy.push(t); stan[t]=[]; } });
     try{ var q=new URLSearchParams(w.location.search); typy.forEach(function(t){ if(q.get(t)) stan[t]=q.get(t).split(',').filter(Boolean); }); if(q.get('q')&&szuk){ szuk.value=q.get('q'); } }catch(e){}
@@ -108,6 +110,8 @@
         if(ok && slowa.length){ var tx=norm(k.getAttribute('data-txt')||k.textContent); ok=slowa.every(function(s){ return tx.indexOf(s)>-1; }); }
         k.hidden=!ok; if(ok) ile++;
       });
+      var ileOp=0; opisy.forEach(function(o){ var ok=OPK.every(function(t){ if(!stan[t]||!stan[t].length) return true; var v=(o.getAttribute('data-'+t)||'').split(' '); return stan[t].some(function(x){ return v.indexOf(x)>-1; }); }); if(ok && slowa.length){ var tx=norm(o.getAttribute('data-txt')||o.textContent); ok=slowa.every(function(s){ return tx.indexOf(s)>-1; }); } o.hidden=!ok; if(ok) ileOp++; });
+      if(opWyn) opWyn.textContent='Opisy tras: '+ileOp+' z '+opisy.length; if(opBrak) opBrak.hidden=ileOp>0||!opisy.length;
       [].forEach.call(d.querySelectorAll('.fb[data-t]'),function(b){ var t=b.getAttribute('data-t'), v=b.getAttribute('data-v'); b.setAttribute('aria-pressed',(v==='all'?!stan[t].length:stan[t].indexOf(v)>-1)?'true':'false'); });
       var aktywne=typy.some(function(t){ return stan[t].length; })||slowa.length>0;
       wynik.textContent=ile?'Znaleziono '+ile+' '+odm(ile):'Nie znaleziono wycieczek';
@@ -228,4 +232,30 @@
   function filtr(r,nazwa){ el.forEach(function(e){ e.hidden = r && (' '+e.getAttribute('data-region')+' ').indexOf(' '+r+' ')<0; }); if(pas){ pas.hidden=!r; if(tx) tx.textContent = r ? 'Albumy: '+nazwa : ''; } }
   kafle.forEach(function(k){ k.addEventListener('click',function(){ filtr(k.getAttribute('data-region'), k.querySelector('b').textContent); }); });
   if(x) x.addEventListener('click',function(){ filtr('',''); });
+})();
+
+/* ===== informator: wyszukiwarka artykułów (region, miejscowość, dział, tekst), 13.11 ===== */
+(function(){
+  var d=document, lista=d.querySelector('[data-inf-lista]'); if(!lista) return;
+  var el=[].slice.call(lista.children), wyn=d.getElementById('inf-wynik'), brak=d.getElementById('inf-brak'), wiecej=d.getElementById('inf-wiecej'), szuk=d.getElementById('inf-szukaj');
+  var stan={r:'',m:'',d:''}, limit=12;
+  function norm(x){ x=(x||'').toLowerCase(); return x.normalize?x.normalize('NFD').replace(/[̀-ͯ]/g,'').replace(/ł/g,'l'):x; }
+  function odm(n){ return n===1?'artykuł':(n%10>=2&&n%10<=4&&(n%100<10||n%100>=20)?'artykuły':'artykułów'); }
+  function filtruj(){
+    var slowa=norm(szuk?szuk.value.trim():'').split(/[^a-z0-9]+/).filter(Boolean).map(function(w){ return w.length<=4?w:w.slice(0,Math.max(4,w.length-2)); });
+    var ok=el.filter(function(li){
+      var t=['r','m','d'].every(function(k){ return !stan[k] || (' '+li.getAttribute('data-'+k)+' ').indexOf(' '+stan[k]+' ')>-1; });
+      if(t && slowa.length){ var tx=norm(li.getAttribute('data-txt')); t=slowa.every(function(s){ return tx.indexOf(s)>-1; }); }
+      return t;
+    });
+    el.forEach(function(li){ li.hidden=true; });
+    ok.forEach(function(li,i){ li.hidden=i>=limit; });
+    wyn.textContent='Znaleziono '+ok.length+' '+odm(ok.length);
+    brak.hidden=ok.length>0; wiecej.hidden=ok.length<=limit;
+    [].forEach.call(d.querySelectorAll('.fb[data-if]'),function(b){ b.setAttribute('aria-pressed', stan[b.getAttribute('data-if')]===b.getAttribute('data-v')?'true':'false'); });
+  }
+  [].forEach.call(d.querySelectorAll('.fb[data-if]'),function(b){ b.addEventListener('click',function(){ stan[b.getAttribute('data-if')]=b.getAttribute('data-v'); limit=12; filtruj(); }); });
+  if(szuk){ var tm; szuk.addEventListener('input',function(){ clearTimeout(tm); tm=setTimeout(function(){ limit=12; filtruj(); },150); }); }
+  wiecej.addEventListener('click',function(){ limit+=24; filtruj(); });
+  filtruj();
 })();
